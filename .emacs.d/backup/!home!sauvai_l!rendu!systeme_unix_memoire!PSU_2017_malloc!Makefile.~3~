@@ -1,0 +1,37 @@
+##
+## Makefile for malloc in /home/sauvai_l/rendu/systeme_unix_memoire/PSU_2017_malloc
+## 
+## Made by Lorenzo
+## Login   <lorenzo.sauvaire@epitech.eu>
+## 
+## Started on  Wed Jan 25 09:40:16 2017 Lorenzo
+## Last update Wed Jan 25 09:41:22 2017 Lorenzo
+##
+
+NAME	=	libmy_malloc.so
+
+CFLAGS	=	-g3 -W -Wall -Werror -Wextra
+
+LDFLAGS	=	-L./
+
+CC	=	gcc
+
+RM	=	rm -rf
+
+SRCS	=	src/libmy_malloc.c \
+
+all:		$(NAME)
+
+$(OBJS):	$(SRCS)
+		$(CC) -c -fpic $(SRCS)
+
+$(NAME):	$(OBJS)
+		$(CC) -shared $(OBJS) -o $(NAME) $(LDFLAGS)
+
+clean:
+		$(RM) $(OBJS)
+
+fclean:		clean
+		$(RM) $(NAME)
+
+re:		fclean all

@@ -1,0 +1,36 @@
+##
+## Makefile
+## 
+## Made by Sauvaire Lorenzo
+## Login   <sauvai_l@epitech.net>
+## 
+## Started on  Thu Nov  5 15:26:07 2015 Sauvaire Lorenzo
+## Last update Thu Feb 23 15:40:00 2017 Lorenzo
+##
+
+NAME	=	objdump
+
+CFLAGS	=	-I./include/ -g3 -W -Wall -Werror -Wextra
+
+LDFLAGS	=	-L./lib/my -lmy
+
+CC	=	gcc
+
+RM	=	rm -rf
+
+SRCS	=	src/main.c \
+
+OBJS	=	$(SRCS:.c=.o)
+
+all:		$(NAME)
+
+$(NAME):	$(OBJS)
+		$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
+
+clean:
+		$(RM) $(OBJS)
+
+fclean:		clean
+		$(RM) $(NAME)
+
+re:		fclean all

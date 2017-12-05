@@ -1,0 +1,43 @@
+##
+## Makefile for trade in /home/sauvai_l/rendu/trade
+## 
+## Made by Lorenzo
+## Login   <lorenzo.sauvaire@epitech.eu>
+## 
+## Started on  Mon Jun  5 14:46:56 2017 Lorenzo
+## Last update Mon Jun  5 14:47:56 2017 Lorenzo
+##
+
+NAME		=	trade
+
+HEADER_PATH	=	header
+
+SRC		=	src/trade.cpp \
+
+OBJ		=	$(SRC:.cpp=.o)
+
+CXXFLAGS	=	-g3 -I./$(HEADER_PATH)/ -W -Wall -Werror -Wextra -std=c++11
+
+CXX		=	g++
+
+RM		=	rm -f
+
+all		:	$(NAME)
+
+$(NAME)		:	$(OBJ)
+			@$(CXX) $(OBJ) -o $(NAME) -lcaca
+			@echo "[OK] $(NAME) linked"
+
+%.o		:	%.cpp
+			@$(CXX) $(CXXFLAGS) -c $< -o $@
+			@echo "[OK] [$<] builded"
+
+clean		:
+			@$(RM) $(OBJ)
+			@echo "[OK] clean"
+
+fclean		:	clean
+			$(RM) $(NAME)
+			@echo "[OK] fclean"
+
+re		:	fclean all

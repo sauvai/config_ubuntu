@@ -1,0 +1,2 @@
+#!/bin/bash
+./send_myemail.sh admin@myservice.com destinataire@fai.fr "test email sujet" "corps du test email" | telnet smtp.fai.fr 25

@@ -1,0 +1,11 @@
+relayhost = smtp.crabdance.com
+smtp_sasl_auth_enable = yes
+smtp_use_tls = yes
+smtp_enforce_tls = yes
+smtp_sasl_security_options =
+smtp_sasl_tls_security_options =
+smtp_sasl_tls_verified_security_options =
+smtp_tls_loglevel = 2 # optional if you wan to see what's going on with the TLS negotiation in /var/log/mail.log
+smtp_sasl_password_maps = hash:/etc/postfix/smtp_sasl_passwords
+smtp_tls_per_site = hash:/etc/postfix/smtp_tls_sites
+tls_random_source = dev:/dev/urandom

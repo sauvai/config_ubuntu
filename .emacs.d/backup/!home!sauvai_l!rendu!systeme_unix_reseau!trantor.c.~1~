@@ -1,0 +1,19 @@
+stuct s_trantor
+{
+  int fd;
+  int lifes;
+  int level;
+  int inventory[7];
+  struct s_trantor *nextInTeam;
+  struct s_trantor *nextInTile;
+  struct s_trantor *teams;
+}
+
+t_trantor	createTrantor(int fd)
+{
+  s_trantor newTrantor;
+
+  newTrantor.fd = fd;
+  newTrantor.lifes
+    newTrantor.level = 0;
+}

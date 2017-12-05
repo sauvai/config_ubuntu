@@ -1,0 +1,15 @@
+#include <ctime>
+#include <cstdlib>
+#include "koaladoctor.h"
+#include "koalanurse.h"
+
+int main (void)
+{
+    KoalaDoctor Dr("Docteur");
+    KoalaNurse Nurse(10);
+    SickKoala Sick("Malade");
+
+    srandom(time(NULL));
+    Dr.diagnose(&Sick);
+    Nurse.readReport("Malade.report");
+}

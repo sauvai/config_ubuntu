@@ -1,0 +1,14 @@
+#include "koalanurse.h"
+
+int main(void)
+{
+    KoalaNurse Bertrand(42);
+    SickKoala WoahSick("Michel");
+
+    Bertrand.timeCheck();
+    std::cout << std::boolalpha << Bertrand.isWorking << std::noboolalpha << std::endl;    
+    WoahSick.poke();
+    Bertrand.giveDrug(Bertrand.readReport("Michel.report"), &WoahSick);
+    Bertrand.timeCheck();    
+    std::cout << std::boolalpha << Bertrand.isWorking << std::noboolalpha << std::endl;    
+}

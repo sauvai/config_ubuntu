@@ -1,0 +1,42 @@
+##
+## Makefile for MakefileOcaml in /home/sauvai_l/rendu/Fonctionelle/OCAML_2016_bootstrap_module
+## 
+## Made by Lorenzo
+## Login   <lorenzo.sauvaire@epitech.eu>
+## 
+## Started on  Mon Apr 24 10:28:29 2017 Lorenzo
+## Last update Mon Apr 24 10:30:37 2017 Lorenzo
+##
+
+NAME		=	agenda
+
+SRC		=	agenda.ml \
+
+FLAGS		=	-w Aelz -warn-error A
+
+nativeCC	=	ocamlopt
+
+byteCC		=
+
+OBJ		=	$(SRC:.ml=.cmi) \
+			$(SRC:.ml=.cmo) \
+			$(SRC:.ml=.cmx) \
+			$(SRC:.ml=.o) \
+
+RM		=	rm -rf
+
+all:			$(NAME)
+
+$(NAME):
+			$(nativeCC) $(SRC) -o $(NAME)
+
+bytecode:
+			$(byteCC) $(SRC) -o $(NAME)
+
+clean:
+			$(RM) $(OBJ)
+
+fclean:			clean
+			$(RM) $(NAME)
+
+re:			fclean all

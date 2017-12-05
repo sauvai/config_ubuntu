@@ -1,0 +1,117 @@
+/*
+1;2802;0c** String.c for string in /home/sauvai_l/PiscineC++/cpp_d03/ex03
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Fri Jan  6 09:24:28 2017 Lorenzo
+** Last update Fri Jan  6 14:36:08 2017 Lorenzo
+*/
+
+#include <stdlib.h>
+#include <string.h>
+#include "String.h"
+
+static	void	assign_s(String *this, String const *str);
+static	void	assign_c(String *this, char const *s);
+
+static	void	append_s(String *this, String const *ap);
+static	void	append_c(String *this, char const *aps);
+
+static	int	at(String *this, size_t pos);
+
+static	void	clear(String *this);
+
+void	StringInit(String *this, char const *s)
+{
+  if (this)
+    {
+      if (s) (*this).str = strdup(s);
+      else (*this).str = NULL;
+      (*this).assign_s = &assign_s;
+      (*this).assign_c = &assign_c;
+      (*this).append_s = &append_s;
+      (*this).append_c = &append_c;
+      (*this).at = &at;
+      (*this).clear = &clear;
+    }
+}
+
+void	StringDestroy(String *this)
+{
+  if (this)
+    {
+      if ((*this).str) free((*this).str);
+      (*this).assign_s = NULL;
+      (*this).assign_c = NULL;
+      (*this).append_s = NULL;
+      (*this).append_c = NULL;
+      (*this).at = NULL;
+      (*this).clear = NULL;
+    }
+}
+
+static	void	assign_s(String *this, String const *str)
+{
+  if (this && str)
+    {
+      if ((*this).str) free((*this).str);
+      if ((*str).str) (*this).str = strdup((*str).str);
+      else (*this).str = NULL;
+    }
+}
+
+static	void	assign_c(String *this, char const *s)
+{
+  if (this)
+    {
+      if ((*this).str) free((*this).str);
+      if (s) (*this).str = strdup(s);
+      else (*this).str = NULL;
+    }
+}
+
+static	void	append_s(struct String *this, String const *ap)
+{
+  int	len;
+
+  if (ap && this)
+    if ((*ap).str)
+      {
+	len = strlen((*this).str) + strlen((*ap).str);
+	if (!((*this).str = realloc((*this).str, len + 1))) exit(84);
+	(*this).str = strcat((*this).str, (*ap).str);
+      }
+}
+
+static	void	append_c(struct String *this, char const *aps)
+{
+  int	len;
+
+  if (this && aps)
+    {
+      len = strlen((*this).str) + strlen(aps);
+      if (!((*this).str = realloc((*this).str, len + 1))) exit(84);
+      (*this).str = strcat((*this).str, aps);
+    }
+}
+
+static	int	at(String *this, size_t pos)
+{
+  unsigned int	i;
+
+  if (this)
+    if ((*this).str)
+      {
+	for (i = 0; i < pos && (*this).str[i]; i++);
+	if ((*this).str[i]) return ((*this).str[i]);
+      }
+  return (-1);
+}
+
+static	void	clear(String *this)
+{
+  if (this)
+    if ((*this).str)
+      for (int i = 0; (*this).str[i]; i++) (*this).str[i] = '\0';
+}

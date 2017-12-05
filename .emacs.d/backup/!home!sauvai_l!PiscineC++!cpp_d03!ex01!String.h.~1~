@@ -1,0 +1,19 @@
+/*
+** String.h for string in /home/sauvai_l/PiscineC++/cpp_d03/ex00
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Fri Jan  6 09:25:10 2017 Lorenzo
+** Last update Fri Jan  6 09:41:58 2017 Lorenzo
+*/
+
+#ifndef _STRING_H_
+# define _STRING_H_
+
+typedef struct	String
+{
+  char	*str;
+}		String;
+
+#endif

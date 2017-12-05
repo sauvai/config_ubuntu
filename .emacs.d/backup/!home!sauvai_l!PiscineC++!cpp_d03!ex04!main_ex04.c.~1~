@@ -1,0 +1,14 @@
+/*
+** main_ex04.c for main_ex04 in /home/sauvai_l/PiscineC++/cpp_d03/ex04
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Fri Jan  6 14:31:33 2017 Lorenzo
+** Last update Fri Jan  6 14:32:01 2017 Lorenzo
+*/
+
+#include <stdio.h>
+#include "String.h"
+
+int	main(void)

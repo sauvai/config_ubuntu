@@ -1,0 +1,49 @@
+/*
+** add.c for add in /home/sauvai_l/PiscineC++/rendu/cpp_d02m/ex04
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Thu Jan  5 14:39:01 2017 Lorenzo
+** Last update Thu Jan  5 16:11:51 2017 Lorenzo
+*/
+
+#include "castmania.h"
+#include <stdio.h>
+
+int	normal_add(int a, int b)
+{
+  return (a + b);
+}
+
+int	absolute_add(int a, int b)
+{
+  if (a < 0) a *= -1;
+  if (b < 0) b *= -1;
+  return (a + b);
+}
+
+void	exec_add(t_add *operation)
+{
+  t_integer_op	*add_op;
+
+  add_op = &((*operation).add_op);
+  if ((*operation).add_type == NORMAL)
+    (*add_op).res = normal_add((*add_op).a, (*add_op).b);
+  else
+    (*add_op).res = absolute_add((*add_op).a, (*add_op).b);
+}
+
+/* int		main(void) */
+/* { */
+/*   t_add		add; */
+
+/*   add.add_op.a = -5; */
+/*   add.add_op.b = 23; */
+/*   add.add_type = NORMAL; */
+/*   exec_add(&add); */
+/*   printf("NORMAL -5 + 23 = %d\n",add.add_op.res); */
+/*   add.add_type = ABSOLUTE; */
+/*   exec_add(&add); */
+/*   printf("ABSOLUTE -5 + 23 = %d\n",add.add_op.res); */
+/* } */

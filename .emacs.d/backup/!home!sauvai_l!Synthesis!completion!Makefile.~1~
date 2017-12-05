@@ -1,0 +1,65 @@
+NAME_SERVER		=	zappy_server
+
+CC			=	gcc -g -g3	
+
+INCLUDE			=	Server/include
+
+CFLAGS			=	-W -Wall -Wextra -Werror -I$(INCLUDE)
+
+RM			=	rm -f
+
+SERVER			=	Server/src
+
+
+SRC_SERVER		=	$(SERVER)/param.c		\
+				$(SERVER)/print.c		\
+				$(SERVER)/tool.c		\
+				$(SERVER)/team_tools.c		\
+				$(SERVER)/init_map.c		\
+				$(SERVER)/look.c 		\
+				$(SERVER)/ressources_list.c	\
+				$(SERVER)/bind_map.c 		\
+				$(SERVER)/set_team.c		\
+				$(SERVER)/game_loop.c		\
+				$(SERVER)/trantor_list_tools.c 	\
+				$(SERVER)/trantor.c 		\
+				$(SERVER)/buffer_list.c		\
+				$(SERVER)/utils.c		\
+				$(SERVER)/vector.c 		\
+				$(SERVER)/move.c 		\
+				$(SERVER)/broadcast.c 		\
+				$(SERVER)/main.c 		\
+				$(SERVER)/strToWordTab.c	\
+				$(SERVER)/posCalcul.c 		\
+				$(SERVER)/getDir.c 		\
+				$(SERVER)/eject.c \
+				$(SERVER)/incantation.c		\
+				$(SERVER)/inventory.c \
+				$(SERVER)/tellGraphic.c 	\
+				$(SERVER)/disconnect.c		\
+				$(SERVER)/its_time_to_eat.c \
+				$(SERVER)/fork.c			\
+				$(SERVER)/buffer_action.c   \
+
+
+OBJ_S			=	$(SRC_SERVER:.c=.o)
+
+all			:	$(NAME_SERVER) $(NAME_CLIENT)
+
+$(NAME_SERVER)		:	$(OBJ_S)
+				@$(CC) $(CFLAGS) $(OBJ_S) -o $(NAME_SERVER) -lm
+				@echo "[OK] $(NAME_SERVER) linked"
+
+%.o			:	%.c
+				@$(CC) $(CFLAGS) -c $< -o $@
+				@echo "[OK] [$<] builded"
+
+clean			:
+				@$(RM) $(OBJ_S)
+				@echo "[OK] clean"
+
+fclean			:	clean
+				@$(RM) $(NAME_SERVER)
+				@echo "[OK] fclean"
+
+re			:	fclean all

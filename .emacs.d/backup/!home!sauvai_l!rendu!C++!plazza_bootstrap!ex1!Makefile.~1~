@@ -1,0 +1,42 @@
+################################################################################
+#                                                                              #
+#                Makefile for ex1_threads in 3_threads_sous_unix               #
+#                For Epitech's C++ knowledge unit                              #
+#                Made by : Uriel Corfa <uriel@corfa.fr>                        #
+#                Modified by : David Giron <thor@epitech.net>                  #
+#                                                                              #
+################################################################################
+
+
+
+NAME_EXE = ex1
+
+SRC_EXE = ex1.c
+OBJ_EXE = $(SRC_EXE:.c=.o)
+
+LDFLAGS += -lpthread
+CFLAGS +=
+
+CC = gcc
+
+
+all: $(NAME_EXE)
+
+
+$(NAME_EXE): $(OBJ_EXE)
+	$(CC) -o $(NAME_EXE) $(OBJ_EXE) $(LDFLAGS)
+
+
+clean:
+	rm -f $(OBJ_LIB) $(OBJ_EXE)
+
+
+fclean: clean
+	rm -f $(NAME_EXE) $(NAME_LIB)
+
+
+re: fclean all
+
+
+
+################################################################################

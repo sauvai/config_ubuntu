@@ -1,0 +1,35 @@
+##
+## Makefile
+## 
+## Made by Sauvaire Lorenzo
+## Login   <sauvai_l@epitech.net>
+## 
+## Started on  Thu Nov  5 15:26:07 2015 Sauvaire Lorenzo
+## Last update Thu Mar  2 15:31:26 2017 Lorenzo
+##
+
+NAME	=	printf
+
+CC	=	gcc
+
+NA	=	nasm -f elf64
+
+RM	=	rm -rf
+
+SRCS	=	$(NAME).asm \
+
+OBJS	=	$(NAME).o
+
+all:		$(NAME)
+
+$(NAME):
+		$(NASM) $(SRCS)
+		$(CC) -o $(NAME) $(OBJS)
+
+clean:
+		$(RM) $(OBJS)
+
+fclean:		clean
+		$(RM) $(NAME)
+
+re:		fclean all

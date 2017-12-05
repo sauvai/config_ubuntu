@@ -1,0 +1,14 @@
+//
+// test.cpp for indie_studio in /home/sauvai_l/rendu/C++ 2/cpp_indie_studio
+//
+// Made by Lorenzo
+// Login   <lorenzo.sauvaire@epitech.eu>
+//
+// Started on  Thu May  4 12:06:11 2017 Lorenzo
+// Last update Thu May  4 12:06:26 2017 Lorenzo
+//
+
+int	main(void)
+{
+  return (0);
+}

@@ -1,0 +1,23 @@
+//
+// test.cpp for test in /home/sauvai_l
+//
+// Made by Lorenzo
+// Login   <lorenzo.sauvaire@epitech.eu>
+//
+// Started on  Fri Jun 16 11:27:25 2017 Lorenzo
+// Last update Fri Jun 16 11:29:38 2017 Lorenzo
+//
+
+#include <cstdio>
+#include <string>
+#include <cstdlib>
+
+int main()
+{
+  char **tab;
+
+  tab = malloc(10000);
+  tab[0] = strdup("salut");
+  printf("%d\n", **tab);
+  return (0);
+}

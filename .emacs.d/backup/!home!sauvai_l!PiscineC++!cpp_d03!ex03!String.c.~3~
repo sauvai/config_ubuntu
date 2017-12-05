@@ -1,0 +1,120 @@
+/*
+** String.c for string in /home/sauvai_l/PiscineC++/cpp_d03/ex01
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Fri Jan  6 09:24:28 2017 Lorenzo
+** Last update Fri Jan  6 11:40:29 2017 Lorenzo
+*/
+
+#include <stdlib.h>
+#include <string.h>
+#include "String.h"
+
+static	void	assign_s(String *this, String const *str);
+static	void	assign_c(String *this, char const *s);
+
+static	void	append_s(String *this, String const *ap);
+static	void	append_c(String *this, char const *aps);
+
+static	int	at(String *this, size_t pos);
+
+void	StringInit(String *this, char const *s)
+{
+  if (this && s) (*this).str = strdup(s);
+  (*this).assign_s = &assign_s;
+  (*this).assign_c = &assign_c;
+  (*this).append_s = &append_s;
+  (*this).append_c = &append_c;
+}
+
+void	StringDestroy(String *this)
+{
+  if (this)
+    if ((*this).str) free((*this).str);
+}
+
+static	void	assign_s(String *this, String const *str)
+{
+  if (this && str)
+    {
+      if ((*this).str) free((*this).str);
+      if ((*str).str) (*this).str = strdup((*str).str);
+      else (*this).str = NULL;
+    }
+}
+
+static	void	assign_c(String *this, char const *s)
+{
+  if (this)
+    {
+      if ((*this).str) free((*this).str);
+      if (s) (*this).str = strdup(s);
+      else (*this).str = NULL;
+    }
+}
+
+static	void	append_s(struct String *this, String const *ap)
+{
+  char	*new_str;
+  int	len;
+
+  if (this && ap)
+    {
+      if ((*ap).str)
+	{
+	  if (!(*this).str) (*this).str = strdup((*ap).str);
+	  else
+	    {
+	      len = strlen((*this).str) + strlen((*ap).str);
+	      if (!(new_str = malloc(sizeof(char) * (len + 1)))) exit(84);
+	      new_str = strcpy(new_str, (*this).str);
+	      new_str = strcat(new_str, (*ap).str);
+	      if ((*this).str) free((*this).str);
+	      (*this).str = strdup(new_str);
+	    }
+	}
+      else
+	(*this).str = NULL;
+    }
+}
+
+static	void	append_c(struct String *this, char const *aps)
+{
+  char	*new_str;
+  int	len;
+
+  if (this)
+    {
+      if (aps)
+	{
+	  if (!(*this).str) (*this).str = strdup(aps);
+	  else
+	    {
+	      len = strlen((*this).str) + strlen(aps);
+	      if (!(new_str = malloc(sizeof(char) * (len + 1)))) exit(84);
+	      new_str = strcpy(new_str, (*this).str);
+	      new_str = strcat(new_str, aps);
+	      if ((*this).str) free((*this).str);
+	      (*this).str = strdup(new_str);
+	    }
+	}
+      else
+	(*this).str = NULL;
+    }
+}
+
+
+static	int	at(String *this, size_t pos)
+{
+  int	i;
+
+  if (this)
+    if ((*this).str)
+      {
+	for (i = 0; i < pos && (*this).str[i]; i++);
+	if ((*this).str[i]) return ((*this).str[i]);
+	else return (-1);
+      }
+}

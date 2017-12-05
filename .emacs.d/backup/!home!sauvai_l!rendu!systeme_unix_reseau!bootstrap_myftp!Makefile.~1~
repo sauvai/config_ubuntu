@@ -1,0 +1,43 @@
+##
+## Makefile for ftp in /home/sauvai_l/rendu/systeme_unix_reseau/bootstrap_myftp
+## 
+## Made by Lorenzo
+## Login   <lorenzo.sauvaire@epitech.eu>
+## 
+## Started on  Thu May 11 11:56:34 2017 Lorenzo
+## Last update Thu May 11 12:01:19 2017 Lorenzo
+##
+
+SERVER		=	server
+
+CLIENT		=	client
+
+SERVER_SRC	=	server.c \
+
+CLIENT_SRC	=	client.c \
+
+SERVER_OBJ	=	$(SERVER_SRC:.c=.o)
+
+CLIENT_OBJ	=	$(CLIENT_SRC:.c=.o)
+
+CFLAGS		=	-W -Wall -Werror -Wextra
+
+CC		=	gcc
+
+RM		=	rm -f
+
+all:		$(SERVER) $(CLIENT)
+
+$(SERVER):	$(SERVER_OBJ)
+		$(CC) $(SERVER_OBJ) -o $(SERVER)
+
+$(CLIENT):	$(CLIENT_OBJ)
+		$(CC) $(SERVER_OBJ) -o $(SERVER)
+
+clean:
+		$(RM) $(SERVER_OBJà $(CLIENT_OBJ)
+
+fclean:		clean
+		$(RM) $(SERVER) $(CLIENT)
+
+re:		fclean all

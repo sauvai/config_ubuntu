@@ -1,0 +1,27 @@
+/*
+** utilsTwo.c
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Sun Jun 11 23:11:01 2017 Lorenzo
+** Last update Sun Jun 11 23:12:20 2017 Lorenzo
+*/
+
+void    fdPrint(int fd, char *str)
+{
+  write(fd, str, strlen(str));
+  write(fd, "\n", 1);
+}
+
+   int     tabSize(char **tab)
+  {
+         int i;
+
+            i = 0;
+           if (tab == NULL)
+	       return (0);
+           while (tab[i] != NULL)
+	       i += 1;
+        return (i);
+     }

@@ -1,0 +1,15 @@
+/*
+** func_ptr.h for func_ptr in /home/sauvai_l/PiscineC++/rendu/cpp_d02m/ex03
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Thu Jan  5 13:42:14 2017 Lorenzo
+** Last update Thu Jan  5 13:43:08 2017 Lorenzo
+*/
+
+typedef struct	t_func
+{
+  int	action;
+  void	(void)(char *);
+}

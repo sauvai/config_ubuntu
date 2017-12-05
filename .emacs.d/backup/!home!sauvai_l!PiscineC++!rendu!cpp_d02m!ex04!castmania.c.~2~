@@ -1,0 +1,14 @@
+/*
+** castmania.c for castmania in /home/sauvai_l/PiscineC++/rendu/cpp_d02m/ex04
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Thu Jan  5 14:55:50 2017 Lorenzo
+** Last update Thu Jan  5 15:21:57 2017 Lorenzo
+*/
+
+void	exec_instruction()
+{
+
+}

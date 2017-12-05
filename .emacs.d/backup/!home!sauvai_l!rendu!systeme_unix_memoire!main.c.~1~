@@ -1,0 +1,59 @@
+/*
+** main.c for malloc in /rendu/systeme_unix_memoire/PSU_2017_malloc/src
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Wed Jan 25 09:55:56 2017 Lorenzo
+** Last update Mon Feb  6 18:08:37 2017 David
+*/
+
+#include <stddef.h>
+#include <unistd.h>
+#include <stdio.h>
+#include "./PSU_2016_malloc/src/libmy_malloc.h"
+
+/* void *my_malloc(size_t); */
+/* void *my_realloc(void *ptr, size_t size); */
+/* void my_free(void *ptr); */
+/* void my_putchar(char c); */
+/* void my_putstr(char *str); */
+
+int main(void)
+{
+  char *str = my_malloc(sizeof(char) * 5);
+  char *str2 = my_malloc(sizeof(char) * 3);
+  char *str3 = my_malloc(sizeof(char) * 84);
+
+  int i = 0;
+
+
+  for (i = 0; i < 4; i++)
+    str[i] = 'A';
+  str[i] = '\0';
+
+
+  for(i = 0; i < 2; i++)
+    str2[i] = 'B';
+  str2[i] = '\0';
+
+  for(i = 0; i < 14; i++)
+    str3[i] = 'C';
+  str3[i] = '\0';
+
+
+  printf("str = %s\nstr2 = %s\nstr3 = %s\n", str, str2, str3);
+  show_alloc_mem();
+  my_free(str);
+  my_free(str2);
+  char *str4 = my_malloc(sizeof(char) * 6);
+  //show_alloc_mem();
+  char *str5 = my_malloc(sizeof(char) * 9);
+  my_free(str5);
+  my_free(str4);
+  my_free(str3);
+  for (int i = 0; i < 20; i++)
+    my_free(my_malloc(100000));
+  show_alloc_mem();
+  return (0);
+}

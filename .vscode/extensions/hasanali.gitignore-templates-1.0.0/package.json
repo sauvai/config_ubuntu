@@ -1,0 +1,45 @@
+{
+	"name": "gitignore-templates",
+	"displayName": "Gitignore Templates",
+	"description": "Quickly generate .gitignore file using templates from https://github.com/github/gitignore",
+	"version": "1.0.0",
+	"publisher": "hasanali",
+	"engines": {
+		"vscode": "^1.12.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.getTemplates"
+	],
+	"main": "./extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.getTemplates",
+				"title": "Generate .gitignore"
+			}
+		]
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^2.0.3",
+		"vscode": "^1.0.0",
+		"mocha": "^2.3.3",
+		"eslint": "^3.6.0",
+		"@types/node": "^6.0.40",
+		"@types/mocha": "^2.2.32"
+	},
+	"dependencies": {
+		"axios": "^0.16.1"
+	},
+	"__metadata": {
+		"id": "cb143f7b-5f75-4d59-b84d-bc1e0cac5c6e",
+		"publisherId": "d953d8f7-ffad-431e-881f-2aa5a2203bc9",
+		"publisherDisplayName": "Hasan Ali"
+	}
+}

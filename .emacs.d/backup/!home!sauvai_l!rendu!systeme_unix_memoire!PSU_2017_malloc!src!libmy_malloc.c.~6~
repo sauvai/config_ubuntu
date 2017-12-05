@@ -1,0 +1,35 @@
+/*
+** libmy_malloc.c for malloc in /home/rendu/systeme_unix_memoire/PSU_2017_malloc
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Wed Jan 25 09:41:35 2017 Lorenzo
+** Last update Wed Jan 25 10:19:51 2017 Lorenzo
+*/
+
+#include <unistd.h>
+#include <stddef.h>
+
+void	my_putchar(char c)
+{
+  write(1, &c, 1);
+}
+
+void	my_putstr(char *str)
+{
+  int	i;
+
+  i = 0;
+  while (str[i])
+    {
+      my_putchar(str[i]);
+      i += 1;
+    }
+}
+
+void	*malloc(size_t size)
+{
+my_putstr("malloc\n");
+  return (0);
+}

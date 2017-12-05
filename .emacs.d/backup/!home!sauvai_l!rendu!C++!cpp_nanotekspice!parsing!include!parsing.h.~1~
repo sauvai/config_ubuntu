@@ -1,0 +1,18 @@
+#ifndef _PARSING_H_
+#define _PARSING_H_
+
+enum e_type
+{
+    NUM,
+    OPE
+};
+
+typedef struct s_tree
+{
+    struct s_tree *left;
+    struct s_tree *right;
+    enum e_type type;
+    void *value;
+} t_tree;
+
+#endif

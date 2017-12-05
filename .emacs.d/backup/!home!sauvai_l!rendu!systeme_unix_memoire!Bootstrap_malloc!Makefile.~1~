@@ -1,0 +1,62 @@
+##
+## Makefile for Makefile in /home/sauvai_l/
+## 
+## Made by lorenzo sauvaire
+## Login   <sauvai_l@epitech.net>
+## 
+## Started on  Tue Oct 13 14:22:46 2015 lorenzo sauvaire
+## Last update Sat Jul  2 12:19:34 2016 Sauvaire Lorenzo
+##
+
+NAME	=	libmy.a
+
+RM	=	rm -rf
+
+CFLAGS	=	-I../../include/ -W -Werror -Wall -Wextra
+
+CC	=	gcc
+
+SRCS	=	display_tab.c \
+		my_getnbr.c \
+		my_putchar.c \
+		my_puterror.c \
+		my_put_nbr.c \
+		my_put_unsnbr.c \
+		my_putstr.c \
+		my_str_isnum.c \
+		put.c \
+		putplus.c \
+		puterr.c \
+		my_strlen.c \
+		my_strcpy.c \
+		my_strcmp.c \
+		my_strcpy.c \
+		my_strdup.c \
+		my_printf.c \
+		my_put_printable_str.c \
+		my_put_revstr.c \
+		my_affptr.c \
+		my_put_uns_nbrbase.c \
+		my_put_long_nbrbase.c \
+		get_nbr_size.c \
+		get_uns_nbr_size.c \
+		get_next_line.c \
+		strtowordtab.c \
+
+OBJS	=	$(SRCS:.c=.o)
+
+ARRC	=	ar rc
+
+all:		$(NAME)
+
+$(NAME):	$(OBJS)
+		$(ARRC) $(NAME) $(OBJS)
+		ranlib $(NAME)
+
+clean:
+		$(RM) $(OBJS)
+
+fclean:		clean
+		$(RM) $(NAME)
+
+re:		fclean all

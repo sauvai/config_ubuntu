@@ -1,0 +1,30 @@
+/*
+** main_ex04.c for main_ex04 in /home/sauvai_l/PiscineC++/cpp_d03/ex04
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Fri Jan  6 14:31:33 2017 Lorenzo
+** Last update Fri Jan  6 16:45:00 2017 Lorenzo
+*/
+
+#include <stdlib.h>
+#include <stdio.h>
+#include "String.h"
+
+int		main(void)
+{
+  String	*this;
+  char		*s;
+
+  this = malloc(sizeof(String));
+  s = malloc(100 * sizeof(char));
+  s[0] = 0;
+  StringInit(this, "cristaline");
+  printf("copy %lu char\n", (*this).copy(this, s, 4, 3));
+  printf("%s\n", s);
+  StringDestroy(this);
+  free(this);
+  free(s);
+  return (0);
+}

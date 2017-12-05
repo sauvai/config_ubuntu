@@ -1,0 +1,48 @@
+/*
+** String.c for string in /home/sauvai_l/PiscineC++/cpp_d03/ex01
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Fri Jan  6 09:24:28 2017 Lorenzo
+** Last update Fri Jan  6 10:29:08 2017 Lorenzo
+*/
+
+#include <stdlib.h>
+#include <string.h>
+#include "String.h"
+
+static	void	assign_s(String *this, String const *str);
+static	void	assign_c(String *this, char const *s);
+
+void	StringInit(String *this, char const *s)
+{
+  if (this && s) (*this).str = strdup(s);
+  (*this).assign_s = &assign_s;
+  (*this).assign_c = &assign_c;
+}
+
+void	StringDestroy(String *this)
+{
+  if (this)
+    if ((*this).str)
+      if ((*this).str) free((*this).str);
+}
+
+static	void	assign_s(String *this, String const *str)
+{
+  if (this && str)
+    {
+      if ((*this).str) free((*this).str);
+      (*this).str = strdup((*str).str);
+    }
+}
+
+static	void	assign_c(String *this, char const *s)
+{
+  if (this && s)
+    {
+      if ((*this).str) free((*this).str);
+      (*this).str = strdup(s);
+    }
+}

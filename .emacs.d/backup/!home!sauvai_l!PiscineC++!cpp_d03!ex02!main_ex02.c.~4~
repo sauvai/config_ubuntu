@@ -1,0 +1,42 @@
+/*
+** main_ex02.c for main_ex02 in /home/sauvai_l/PiscineC++/cpp_d03/ex02
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Fri Jan  6 11:25:01 2017 Lorenzo
+** Last update Fri Jan  6 13:32:29 2017 Lorenzo
+*/
+
+#include <stdlib.h>
+#include <stdio.h>
+#include "String.h"
+
+int		main(void)
+{
+  String	this;
+  String	str;
+  String	test;
+
+  this = malloc(sizeof(String));
+  str = malloc(sizeof(String));
+  test = malloc(sizeof(String));
+  StringInit(this, "pomme");
+  StringInit(str, "patate");
+  StringInit(test, "pelle");
+  printf("(1) : %s\n", (*this).str);
+
+  this.append_s(this, str);
+  printf("(2) : %s\n", (*this).str);
+
+  this.append_s(this, test);
+  printf("(3) : %s\n", (*this).str);
+
+  this.append_c(this, "banane");
+  printf("(4) : %s\n", (*this).str);
+
+  StringDestroy(this);
+  StringDestroy(str);
+  StringDestroy(test);
+  return (0);
+}

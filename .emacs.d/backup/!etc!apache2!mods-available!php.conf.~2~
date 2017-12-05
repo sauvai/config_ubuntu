@@ -1,0 +1,4 @@
+<IfModule mod_php5.6.c>
+  AddType application/x-httpd-php .php .phtml .php5.6
+  AddType application/x-httpd-php-source .phps
+</IfModule>

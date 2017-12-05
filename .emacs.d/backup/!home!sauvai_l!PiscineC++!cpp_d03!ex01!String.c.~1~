@@ -1,0 +1,30 @@
+/*
+** String.c for string in /home/sauvai_l/PiscineC++/cpp_d03/ex00
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Fri Jan  6 09:24:28 2017 Lorenzo
+** Last update Fri Jan  6 09:45:33 2017 Lorenzo
+*/
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include "String.h"
+
+void	StringInit(String *this, char const *s)
+{
+  if (this && s)
+    (*this).str = strdup(s);
+}
+
+void	StringDestroy(String *this)
+{
+  if (this)
+    {
+      if ((*this).str)
+	free((*this).str);
+      free(this);
+    }
+}

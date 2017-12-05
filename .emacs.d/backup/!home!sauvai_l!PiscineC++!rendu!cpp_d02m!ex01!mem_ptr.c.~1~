@@ -1,0 +1,14 @@
+/*
+** mem_ptr.c for mem_ptr in /home/sauvai_l/PiscineC++/rendu/cpp_d02m/ex01
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Thu Jan  5 09:30:08 2017 Lorenzo
+** Last update Thu Jan  5 09:31:27 2017 Lorenzo
+*/
+
+void	add_str(char *str1, char *str2, char **res)
+{
+
+}

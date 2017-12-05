@@ -1,0 +1,115 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+#include "String.h"
+
+void test_non_allocated_str() {
+    String *s = malloc(sizeof(String));
+    String *s2 = malloc(sizeof(String));
+
+    if (!s || !s2) {
+        printf("malloc error\n");
+        exit(84);
+    }
+    StringInit(s2, "lal");
+
+    StringInit(s, "lol");
+    printf("StringInit : %d\n", !strcmp(s->str, "lol"));
+
+    s->assign_c(s, "lul");
+    printf("assign_c : %d\n", !strcmp(s->str, "lul"));
+
+    s->assign_s(s, s2);
+    printf("assign_s : %d\n", !strcmp(s->str, "lal"));
+
+    s->append_c(s, "foo");
+    printf("append_c : %d\n", !strcmp(s->str, "lalfoo"));
+
+    s->assign_c(s, "lol");
+    s2->assign_c(s2, "foo");
+    s->append_s(s, s2);
+    printf("append_s : %d\n", !strcmp(s->str, "lolfoo"));
+
+    StringDestroy(s);
+    StringDestroy(s2);
+}
+
+void test_allocated_str() {
+    String *s = malloc(sizeof(String));
+    char *str = strdup("lol");
+    char *str2 = strdup("foo");
+
+    if (!s || !str || !str2) {
+        printf("malloc error\n");
+        exit(84);
+    }
+
+    StringInit(s, str);
+    printf("StringInit allocated : %d\n", !strcmp(s->str, "lol"));
+
+    s->assign_c(s, str2);
+    printf("assign_c allocated : %d\n", !strcmp(s->str, "foo"));
+
+    s->assign_c(s, "lol");
+    s->append_c(s, str2);
+    printf("append_c allocated : %d\n", !strcmp(s->str, "lolfoo"));
+
+    StringDestroy(s);
+
+    free(str);
+    free(str2);
+}
+
+void test_null_ptr() {
+    String *s = malloc(sizeof(String));
+    String *s2 = malloc(sizeof(String));
+    char *str = strdup("lal");
+
+    if (!s || !s2 || !str) {
+        printf("malloc error\n");
+        exit(84);
+    }
+
+    StringInit(s, NULL);
+    printf("StringInit NULL : %d\n", s->str == NULL);
+
+    s->assign_c(s, str);
+    s->assign_c(s, NULL);
+    printf("assign_c NULL : %d\n", s->str == NULL);
+
+    s->assign_c(s, str);
+    s->assign_s(s, NULL);
+    printf("assign_s NULL struct : %d\n", !strcmp(s->str, str));
+
+    StringInit(s2, NULL);
+    s->assign_c(s, str);
+    s->assign_s(s, s2);
+    printf("assign_s NULL str : %d\n", s->str == NULL);
+
+    s->assign_c(s, "lol");
+    s->append_c(s, NULL);
+    printf("append_c NULL : %d\n", !strcmp(s->str, "lol"));
+
+    s->assign_c(s, "lol");
+    s->append_s(s, NULL);
+    printf("append_s NULL struct : %d\n", !strcmp(s->str, "lol"));
+
+    s->assign_c(s, "lol");
+    s->assign_c(s2, NULL);
+    s->append_s(s, s2);
+    printf("append_s NULL str : %d\n", !strcmp(s->str, "lol"));
+
+    StringDestroy(s);
+    StringDestroy(s2);
+    free(str);
+}
+
+int main() {
+    test_non_allocated_str();
+    printf("-----------------------------------\n");
+    test_allocated_str();
+    printf("-----------------------------------\n");
+    test_null_ptr();
+    return 0;
+}

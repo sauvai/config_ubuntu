@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char *my_strcat(char *dest, char *src)
+{
+  char *new;
+  int i;
+
+  i = 0;
+  if (dest == NULL)
+    return ((dest = strdup(src)));
+  new = malloc((strlen(src) + strlen(dest) + 1) * sizeof(char));
+  memmove(new, dest, strlen(dest));
+  memmove(new + strlen(dest), src, strlen(src));
+  return (new);
+}
+
+int main(void)
+{
+
+  char *str = my_strcat("pomme", "-de-pin");
+  printf("str: %s\n", str != NULL ? str : "nul");
+  return (0);
+}

@@ -1,0 +1,16 @@
+#!/bin/sh
+## auto_right.sh for auto_right in /home/sauvai_l
+## 
+## Made by lorenzo sauvaire
+## Login   <sauvai_l@epitech.net>
+## 
+## Started on  Thu Oct  8 20:09:47 2015 lorenzo sauvaire
+## Last update Wed Jul 26 10:42:18 2017 sauvail
+##
+
+if [ $# -ne 3 ]; then
+    echo "right [userName] [repoName] [right]"
+    exit 84
+fi
+
+~/.bin/blih.py -u lorenzo.sauvaire@epitech.eu repository setacl $1 $2 $3

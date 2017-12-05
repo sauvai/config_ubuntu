@@ -1,0 +1,23 @@
+/*
+** lel.c for bite in /home/sauvai_l
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Wed Feb 15 10:14:35 2017 Lorenzo
+** Last update Wed Feb 15 10:18:28 2017 Lorenzo
+*/
+
+#include <stdio.h>
+
+int	main(void)
+{
+  char	num;
+
+  num = '3' | '7'| '4';
+  printf("num = %c\n", num);
+  if ('7' == num)
+    printf("num contient 7\n");
+  if ('6' == num)
+    printf("num ne contient pas 6\n");
+}

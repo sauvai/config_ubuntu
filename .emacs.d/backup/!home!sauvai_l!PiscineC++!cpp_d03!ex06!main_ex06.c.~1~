@@ -1,0 +1,28 @@
+/*
+** main_ex04.c for main_ex04 in /home/sauvai_l/PiscineC++/cpp_d03/ex04
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Fri Jan  6 14:31:33 2017 Lorenzo
+** Last update Fri Jan  6 14:46:09 2017 Lorenzo
+*/
+
+#include <stdlib.h>
+#include <stdio.h>
+#include "String.h"
+
+int		main(void)
+{
+  String	*this;
+
+  this = malloc(sizeof(String));
+  StringInit(this, "cecile");
+  printf("Normal\n");
+  printf("size : %d\n", (*this).size(this));
+  (*this).assign_c(this, NULL);
+  printf("str = NULL\n");
+  printf("size : %d\n", (*this).size(this));
+  StringDestroy(this);
+  return (0);
+}

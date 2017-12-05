@@ -1,0 +1,33 @@
+{
+	"name": "made-of-code",
+	"displayName": "Made of Code",
+	"description": "Made of Code Theme ported from the Made of Code TextMate Theme",
+	"version": "0.0.5",
+	"publisher": "brian-yu",
+	"engines": {
+		"vscode": "^1.5.0"
+	},
+	"categories": [
+		"Themes"
+	],
+	"icon": "icon.png",
+	"homepage": "https://github.com/brian-yu/made-of-code-vscode/blob/master/README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/brian-yu/made-of-code-vscode.git"
+	},
+	"contributes": {
+		"themes": [
+			{
+				"label": "Made of Code",
+				"uiTheme": "vs-dark",
+				"path": "./themes/made-of-code.tmTheme"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "06654d14-efbb-496f-8656-aeace831c277",
+		"publisherId": "958ce697-f987-48a5-9567-0e45777cc2f2",
+		"publisherDisplayName": "Brian Yu"
+	}
+}

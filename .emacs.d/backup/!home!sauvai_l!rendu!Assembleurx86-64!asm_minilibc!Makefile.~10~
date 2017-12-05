@@ -1,0 +1,44 @@
+##
+## Makefile
+## 
+## Made by Sauvaire Lorenzo
+## Login   <sauvai_l@epitech.net>
+## 
+## Started on  Thu Nov  5 15:26:07 2015 Sauvaire Lorenzo
+## Last update Wed Mar  8 11:12:47 2017 Lorenzo
+##
+
+NAME	=	asm
+
+CC	=	gcc
+
+CFLAGS	=	-g3 -W -Wall -Werror -Wextra
+
+NASM	=	nasm -f elf64
+
+RM	=	rm -rf
+
+NSRCS	=	strlen.asm \
+		strchr.asm \
+
+NOBJS	=	$(NSRCS:.asm=.o)
+
+SRCS	=	main.c
+
+OBJS	=	$(SRCS:.c=.o)
+
+all:		$(NAME)
+
+$(NAME):	$(OBJS) $(NOBJS)
+		$(CC) -o $(NAME) main.o $(OBJS)
+
+%.o:		%.asm		
+		$(NASM) -o $@ -c $<
+
+clean:
+		$(RM) $(OBJS) main.o
+
+fclean:		clean
+		$(RM) $(NAME)
+
+re:		fclean all

@@ -1,0 +1,27 @@
+NAME	=	agenda
+
+SRC	=	agenda.ml \
+
+FLAGS	=	-w Aelz -warn-error A
+
+CC	=	ocamlopt
+
+OBJ	=	$(SRC:.ml=.cmi) \
+		$(SRC:.ml=.cmo) \
+		$(SRC:.ml=.cmx) \
+		$(SRC:.ml=.o) \
+
+RM	=	rm -rf
+
+all:		$(NAME)
+
+$(NAME):	$(OBJ)
+		$(CC) $(OBJ) -o $(NAME)
+
+clean:
+		$(RM) $(OBJ)
+
+fclean:		clean
+		$(RM) $(NAME)
+
+re:		fclean all

@@ -1,0 +1,45 @@
+/*
+** castmania.c for castmania in /home/sauvai_l/PiscineC++/rendu/cpp_d02m/ex04
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Thu Jan  5 14:55:50 2017 Lorenzo
+** Last update Thu Jan  5 19:31:15 2017 Lorenzo
+*/
+
+#include "castmania.h"
+#include <stdio.h>
+
+void		exec_operation(t_instruction_type instruction_type, void *data)
+{
+  t_instruction	*instruction;
+  t_add		*add;
+  t_div		*div;
+
+  instruction = (t_instruction*)(data);
+  if (instruction_type == ADD_OPERATION)
+    {
+      add = (*instruction).operation;
+      exec_add(add);
+      if ((*instruction).output_type == VERBOSE)
+	printf("%d\n", (*add).add_op.res);
+    }
+  else if (instruction_type == DIV_OPERATION)
+    {
+      div = (*instruction).operation;
+      exec_div(div);
+      if ((*instruction).output_type == VERBOSE)
+	{
+	  if ((*div).div_type == INTEGER)
+	    printf("%d\n", (*(t_integer_op*)((*div).div_op)).res);
+	  else if ((*div).div_type == DECIMALE)
+	    printf("%f\n", (*(t_decimale_op*)((*div).div_op)).res);
+	}
+    }
+}
+
+void		exec_instruction()
+{
+
+}

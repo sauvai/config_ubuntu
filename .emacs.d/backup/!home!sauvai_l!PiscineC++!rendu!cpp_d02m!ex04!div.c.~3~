@@ -1,0 +1,36 @@
+/*
+** div.c for div in /home/sauvai_l/PiscineC++/rendu/cpp_d02m/ex04
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Thu Jan  5 14:21:02 2017 Lorenzo
+** Last update Thu Jan  5 14:53:08 2017 Lorenzo
+*/
+
+int	integer_div(int a, nit b)
+{
+  b == 0 ? return (0) : return (a / b);
+}
+
+float	decimal_div(int a, int b)
+{
+  b == 0 ? return (0) : return ((float)a / (float)b);
+}
+
+int	exec_div(t_div *operation)
+{
+  t_integer	*integer;
+  t_decimal	*decimal;
+
+  if ((*operation).div_type == INTEGER)
+    {
+      integer = (t_integer*)(operation);
+      (*integer).res = integer_div(integer.a, integer.b);
+    }
+  else if (*operation.div_type == DECIMAL)
+    {
+      integer = (t_integer*)(operation);
+      (*integer).res = integer_div(integer.a, integer.b);
+    }
+}

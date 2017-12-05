@@ -1,0 +1,94 @@
+{
+	"name": "vscode-header-source",
+	"displayName": "Header source",
+	"description": "Header-source switcher for vscode",
+	"version": "1.1.0",
+	"publisher": "ryzngard",
+	"bugs": {
+		"url": "https://github.com/ryzngard/header-source-switch/issues"
+	},
+	"homepage": "https://github.com/ryzngard/header-source-switch",
+	"engines": {
+		"vscode": "^1.12.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.switch",
+		"onCommand:extension.switchRightPane"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.switch",
+				"title": "Switch Header/Source"
+			},
+			{
+				"command": "extension.switchRightPane",
+				"title": "Switch Header/Source To Right Pane"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "extension.switch",
+				"key": "alt+o"
+			},
+			{
+				"command": "extension.switchRightPane",
+				"key": "shift+alt+o"
+			}
+		],
+		"configuration": {
+			"title": "Settings for header-source-switch",
+			"type": "object",
+			"properties": {
+				"headerSourceSwitch.mappings": {
+					"type": "array",
+					"description": "Array of mappings, defaults to C++ mappings",
+					"default": [
+						{
+							"header": [
+								".h",
+								".hpp",
+								".hh",
+								".hxx"
+							],
+							"source": [
+								".cpp",
+								".c",
+								".cc",
+								".cxx",
+								".m",
+								".mm"
+							],
+							"name": "C++"
+						}
+					]
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "tsc -p ./",
+		"compile": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^2.0.3",
+		"vscode": "^1.0.0",
+		"mocha": "^2.3.3",
+		"@types/node": "^6.0.40",
+		"@types/mocha": "^2.2.32"
+	},
+	"dependencies": {
+		"file-exists": "^3.0.2"
+	},
+	"__metadata": {
+		"id": "9f557990-5179-4a87-9936-fcc29e818452",
+		"publisherId": "8857c0e5-3621-4e17-8cb5-e01cff817d50",
+		"publisherDisplayName": "Andrew Hall"
+	}
+}

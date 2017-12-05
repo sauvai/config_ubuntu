@@ -1,0 +1,14 @@
+/*
+** main.c for bootstrap malloc in /home/sauvai_l/rendu/systeme_unix_memoire/Bootstrap_malloc
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Tue Jan 24 16:04:52 2017 Lorenzo
+** Last update Tue Jan 24 16:05:38 2017 Lorenzo
+*/
+
+int main(void)
+{
+
+}

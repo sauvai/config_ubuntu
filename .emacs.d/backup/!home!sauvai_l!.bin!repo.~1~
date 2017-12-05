@@ -1,0 +1,15 @@
+#!/bin/bash
+## repo.sh for auto in /home/sauvai_l
+## 
+## Made by Sauvaire Lorenzo
+## Login   <sauvai_l@epitech.net>
+## 
+## Started on  Mon Nov 30 13:42:53 2015 Sauvaire Lorenzo
+## Last update Mon Apr 11 11:04:05 2016 Sauvaire Lorenzo
+##
+
+read -p 'Repo : ' repo
+~/.bin/blih.py -u lorenzo.sauvaire@epitech.eu repository create $repo
+~/.bin/blih.py -u lorenzo.sauvaire@epitech.eu repository setacl $repo ramassage-tek r
+~/.bin/blih.py -u lorenzo.sauvaire@epitech.eu repository getacl $repo
+git clone git@git.epitech.eu:/lorenzo.sauvaire@epitech.eu/$repo

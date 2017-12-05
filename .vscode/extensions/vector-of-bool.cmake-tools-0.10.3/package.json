@@ -1,0 +1,646 @@
+{
+	"name": "cmake-tools",
+	"displayName": "CMake Tools",
+	"description": "Extended CMake support in Visual Studio Code",
+	"version": "0.10.3",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/vector-of-bool/vscode-cmake-tools"
+	},
+	"bugs": {
+		"url": "https://github.com/vector-of-bool/vscode-cmake-tools/issues"
+	},
+	"homepage": "https://github.com/vector-of-bool/vscode-cmake-tools",
+	"keywords": [
+		"cmake",
+		"tools",
+		"build",
+		"c++",
+		"native"
+	],
+	"license": "MIT",
+	"publisher": "vector-of-bool",
+	"engines": {
+		"vscode": "^1.16.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"galleryBanner": {
+		"color": "#13578c",
+		"theme": "dark"
+	},
+	"icon": "res/icon_128.png",
+	"activationEvents": [
+		"onCommand:cmake.configure",
+		"onCommand:cmake.build",
+		"onCommand:cmake.install",
+		"onCommand:cmake.buildWithTarget",
+		"onCommand:cmake.setBuildType",
+		"onCommand:cmake.setDefaultTarget",
+		"onCommand:cmake.cleanConfigure",
+		"onCommand:cmake.clean",
+		"onCommand:cmake.cleanRebuild",
+		"onCommand:cmake.ctest",
+		"onCommand:cmake.jumpToCacheFile",
+		"onCommand:cmake.quickStart",
+		"onCommand:cmake.launchTargetProgramPath",
+		"onCommand:cmake.launchTarget",
+		"onCommand:cmake.debugTarget",
+		"onCommand:cmake.selectLaunchTarget",
+		"onCommand:cmake.selectEnvironments",
+		"onCommand:cmake.toggleCoverageDecorations",
+		"workspaceContains:CMakeLists.txt"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "cmake.configure",
+				"title": "Configure",
+				"category": "CMake"
+			},
+			{
+				"command": "cmake.build",
+				"title": "Build",
+				"category": "CMake"
+			},
+			{
+				"command": "cmake.install",
+				"title": "Install",
+				"category": "CMake"
+			},
+			{
+				"command": "cmake.buildWithTarget",
+				"title": "Build a target",
+				"category": "CMake"
+			},
+			{
+				"command": "cmake.setBuildType",
+				"title": "Set build type",
+				"category": "CMake"
+			},
+			{
+				"command": "cmake.setDefaultTarget",
+				"title": "Set the default build target",
+				"category": "CMake"
+			},
+			{
+				"command": "cmake.cleanConfigure",
+				"title": "Delete cached build settings and reconfigure",
+				"category": "CMake"
+			},
+			{
+				"command": "cmake.clean",
+				"title": "Clean",
+				"category": "CMake"
+			},
+			{
+				"command": "cmake.cleanRebuild",
+				"title": "Clean rebuild",
+				"category": "CMake"
+			},
+			{
+				"command": "cmake.ctest",
+				"title": "Run tests",
+				"category": "CMake"
+			},
+			{
+				"command": "cmake.jumpToCacheFile",
+				"title": "Edit the CMake Cache",
+				"category": "CMake"
+			},
+			{
+				"command": "cmake.quickStart",
+				"title": "Quick Start",
+				"category": "CMake"
+			},
+			{
+				"command": "cmake.debugTarget",
+				"title": "Debug Target",
+				"category": "CMake"
+			},
+			{
+				"command": "cmake.launchTarget",
+				"title": "Execute the current target without a debugger",
+				"category": "CMake"
+			},
+			{
+				"command": "cmake.selectLaunchTarget",
+				"title": "Select a Target to Debug",
+				"category": "CMake"
+			},
+			{
+				"command": "cmake.selectEnvironments",
+				"title": "Select active build environments",
+				"category": "CMake"
+			},
+			{
+				"command": "cmake.toggleCoverageDecorations",
+				"title": "Toggle visibility of test coverage in the editor",
+				"category": "CMake"
+			}
+		],
+		"menus": {
+			"commandPalette": [
+				{
+					"command": "cmake.configure"
+				},
+				{
+					"command": "cmake.build"
+				},
+				{
+					"command": "cmake.install"
+				},
+				{
+					"command": "cmake.buildWithTarget"
+				},
+				{
+					"command": "cmake.setBuildType"
+				},
+				{
+					"command": "cmake.setDefaultTarget"
+				},
+				{
+					"command": "cmake.setDefaultTarget"
+				},
+				{
+					"command": "cmake.cleanConfigure"
+				},
+				{
+					"command": "cmake.clean"
+				},
+				{
+					"command": "cmake.cleanRebuild"
+				},
+				{
+					"command": "cmake.ctest"
+				},
+				{
+					"command": "cmake.jumpToCacheFile"
+				},
+				{
+					"command": "cmake.debugTarget"
+				},
+				{
+					"command": "cmake.launchTarget"
+				},
+				{
+					"command": "cmake.selectLaunchTarget"
+				},
+				{
+					"command": "cmake.selectEnvironments"
+				},
+				{
+					"command": "cmake.toggleCoverageDecorations"
+				}
+			]
+		},
+		"configuration": {
+			"type": "object",
+			"title": "CMake Tools configuration",
+			"properties": {
+				"cmake.buildDirectory": {
+					"type": "string",
+					"default": "${workspaceRoot}/build",
+					"description": "The directory where CMake build files will go"
+				},
+				"cmake.installPrefix": {
+					"type": "string",
+					"default": null,
+					"description": "The directory where CMake installed files will go."
+				},
+				"cmake.sourceDirectory": {
+					"type": "string",
+					"default": "${workspaceRoot}",
+					"description": "The directory of the root CMakeLists.txt file"
+				},
+				"cmake.saveBeforeBuild": {
+					"type": "boolean",
+					"default": true,
+					"description": "Save open files before building"
+				},
+				"cmake.buildBeforeRun": {
+					"type": "boolean",
+					"default": true,
+					"description": "Build the target before running it."
+				},
+				"cmake.clearOutputBeforeBuild": {
+					"type": "boolean",
+					"default": true,
+					"description": "Clear build output before each build"
+				},
+				"cmake.configureSettings": {
+					"type": "object",
+					"default": {},
+					"description": "CMake variables to set on the command line"
+				},
+				"cmake.initialBuildType": {
+					"type": "null",
+					"default": null,
+					"description": "[[This option is deprecated and will no longer be used]]"
+				},
+				"cmake.preferredGenerators": {
+					"type": "array",
+					"default": [
+						"Ninja",
+						"Unix Makefiles"
+					],
+					"description": "The preferred CMake generator(s) to use when configuring (tried in order of listing)"
+				},
+				"cmake.generator": {
+					"type": "string",
+					"default": null,
+					"description": "The CMake generator to use"
+				},
+				"cmake.toolset": {
+					"type": "string",
+					"default": null,
+					"description": "The CMake toolset to use when configuring"
+				},
+				"cmake.platform": {
+					"type": "string",
+					"default": null,
+					"description": "The CMake platform to use when configuring"
+				},
+				"cmake.configureArgs": {
+					"type": "array",
+					"description": "Additional arguments to pass to CMake when configuring",
+					"items": {
+						"type": "string",
+						"title": "CMake Arguments"
+					},
+					"default": []
+				},
+				"cmake.buildArgs": {
+					"type": "array",
+					"description": "Additional arguments to pass to CMake when building",
+					"items": {
+						"type": "string"
+					},
+					"default": []
+				},
+				"cmake.buildToolArgs": {
+					"type": "array",
+					"description": "Additional arguments to pass to the underlying build tool when building",
+					"items": {
+						"type": "string"
+					},
+					"default": []
+				},
+				"cmake.parallelJobs": {
+					"type": "number",
+					"default": 0,
+					"description": "The number of parallel build jobs. Use zero to automatically detect the number of CPUs."
+				},
+				"cmake.ctestPath": {
+					"type": "string",
+					"default": null,
+					"description": "Path to CTest executable. If null, will be inference from cmake.cmakePath (recommended to leave null)"
+				},
+				"cmake.ctest.parallelJobs": {
+					"type": "number",
+					"default": 0,
+					"description": "The number of parallel test jobs. Use zero to use the value of cmake.parallelJobs"
+				},
+				"cmake.parseBuildDiagnostics": {
+					"type": "boolean",
+					"default": true,
+					"description": "Parse compiler output for warnings and errors"
+				},
+				"cmake.enabledOutputParsers": {
+					"type": "array",
+					"description": "Output parsers to use. Supported parsers 'cmake', 'gcc', 'gnuld' for GNULD-style inker output, 'msvc' for Microsoft Visual C++, and 'ghs' for the Green Hills compiler with --no_wrap_diagnostics --brief_diagnostics",
+					"items": {
+						"type": "string",
+						"enum": [
+							"cmake",
+							"gcc",
+							"gnuld",
+							"msvc",
+							"ghs"
+						]
+					},
+					"default": [
+						"cmake",
+						"gcc",
+						"gnuld",
+						"msvc",
+						"ghs"
+					]
+				},
+				"cmake.debugConfig": {
+					"type": "object",
+					"description": "The debug configuration to use when debugging a target",
+					"properties": {
+						"symbolSearchPath": {
+							"type": "string",
+							"description": "Visual Studio debugger symbol search paths"
+						},
+						"additionalSOLibSearchPath": {
+							"type": "string",
+							"description": "Paths for GDB or LLDB to search for .so files"
+						},
+						"externalConsole": {
+							"type": "boolean",
+							"description": "Launch an external console for the program"
+						},
+						"logging": {
+							"type": "object",
+							"description": "Tell what types of messages should be logged to the console",
+							"properties": {
+								"exceptions": {
+									"type": "boolean",
+									"default": true
+								},
+								"moduleLoad": {
+									"type": "boolean",
+									"default": true
+								},
+								"programOutput": {
+									"type": "boolean",
+									"default": true
+								},
+								"engineLogging": {
+									"type": "boolean",
+									"default": false
+								},
+								"trace": {
+									"type": "boolean",
+									"default": false
+								},
+								"traceResponse": {
+									"type": "boolean",
+									"default": false
+								}
+							}
+						},
+						"visualizerFile": {
+							"type": "string",
+							"description": ".natvis file to be used when debugging"
+						},
+						"args": {
+							"type": "array",
+							"description": "Arguments to pass to program command line",
+							"items": {
+								"type": "string"
+							},
+							"default": []
+						},
+						"cwd": {
+							"type": "string",
+							"description": "Set the working directory for the program"
+						},
+						"environment": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"name": {
+										"type": "string",
+										"description": "Name of environment variable"
+									},
+									"value": {
+										"type": "string",
+										"description": "Value for the environment variable"
+									}
+								}
+							}
+						},
+						"MIMode": {
+							"type": "string",
+							"enum": [
+								"gdb",
+								"lldb"
+							]
+						},
+						"miDebuggerPath": {
+							"type": "string",
+							"description": "Path to gdb or lldb debugger"
+						},
+						"stopAtEntry": {
+							"type": "boolean",
+							"description": "Stop at the entry point of the target",
+							"default": false
+						},
+						"setupCommands": {
+							"type": "array",
+							"description": "Command to set up gdb or lldb",
+							"items": {
+								"type": "object",
+								"properties": {
+									"text": {
+										"type": "string",
+										"description": "Command to run"
+									},
+									"description": {
+										"type": "string",
+										"description": "Description of the command"
+									},
+									"ignoreFailures": {
+										"type": "boolean",
+										"default": false
+									}
+								}
+							}
+						},
+						"customLaunchSetupCommands": {
+							"type": "array",
+							"description": "Command to set up gdb or lldb",
+							"items": {
+								"type": "object",
+								"properties": {
+									"text": {
+										"type": "string",
+										"description": "Command to run"
+									},
+									"description": {
+										"type": "string",
+										"description": "Description of the command"
+									},
+									"ignoreFailures": {
+										"type": "boolean",
+										"default": false
+									}
+								}
+							}
+						},
+						"launchCompleteCommand": {
+							"type": "string"
+						},
+						"dumpPath": {
+							"type": "string"
+						},
+						"coreDumpPath": {
+							"type": "string"
+						}
+					}
+				},
+				"cmake.defaultVariants": {
+					"type": "object",
+					"$schema": "schemas/variants-schema.json",
+					"default": {
+						"buildType": {
+							"default$": "debug",
+							"description$": "The build type to use",
+							"debug": {
+								"oneWordSummary$": "Debug",
+								"description$": "Emit debug information without performing optimizations",
+								"buildType": "Debug"
+							},
+							"release": {
+								"oneWordSummary$": "Release",
+								"description$": "Enable optimizations, omit debug info",
+								"buildType": "Release"
+							},
+							"minsize": {
+								"oneWordSummary$": "MinSizeRel",
+								"description$": "Optimize for smallest binary size",
+								"buildType": "MinSizeRel"
+							},
+							"reldeb": {
+								"oneWordSummary$": "RelWithDebInfo",
+								"description$": "Perform optimizations AND include debugging information",
+								"buildType": "RelWithDebInfo"
+							}
+						}
+					}
+				},
+				"cmake.ctestArgs": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"description": "Arguments to pass to CTest",
+					"default": []
+				},
+				"cmake.environment": {
+					"type": "object",
+					"default": {},
+					"description": "Environment variables to set when running CMake commands",
+					"additionalProperties": {
+						"type": "string",
+						"description": "Value for the environment variable"
+					}
+				},
+				"cmake.configureEnvironment": {
+					"type": "object",
+					"default": {},
+					"description": "Environment variables to pass to CMake during configure",
+					"additionalProperties": {
+						"type": "string",
+						"description": "Value for the environment variable"
+					}
+				},
+				"cmake.buildEnvironment": {
+					"type": "object",
+					"default": {},
+					"description": "Environment variables to pass to CMake during build",
+					"additionalProperties": {
+						"type": "string",
+						"description": "Value for the environment variable"
+					}
+				},
+				"cmake.testEnvironment": {
+					"type": "object",
+					"default": {},
+					"description": "Environment variables to pass to CTest",
+					"additionalProperties": {
+						"type": "string",
+						"description": "Value for the environment variable"
+					}
+				},
+				"cmake.mingwSearchDirs": {
+					"type": "array",
+					"items": {
+						"type": "string",
+						"description": "Path to a directory"
+					},
+					"default": [
+						"C:\\MinGW"
+					],
+					"description": "Directories where MinGW may be installed"
+				},
+				"cmake.emscriptenSearchDirs": {
+					"type": "array",
+					"items": {
+						"type": "string",
+						"description": "Path to a directory"
+					},
+					"default": [],
+					"description": "Directories where Emscripten may be installed"
+				},
+				"cmake.useCMakeServer": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable CMake server"
+				},
+				"cmake.loggingLevel": {
+					"type": "string",
+					"default": "normal",
+					"enum": [
+						"verbose",
+						"normal",
+						"minimal"
+					]
+				}
+			}
+		},
+		"keybindings": [
+			{
+				"key": "f7",
+				"command": "cmake.build"
+			},
+			{
+				"key": "shift+f7",
+				"command": "cmake.buildWithTarget"
+			},
+			{
+				"key": "ctrl+f5",
+				"command": "cmake.debugTarget",
+				"when": "!inDebugMode"
+			},
+			{
+				"key": "shift+f5",
+				"command": "cmake.launchTarget"
+			}
+		],
+		"jsonValidation": [
+			{
+				"fileMatch": "cmake-variants.json",
+				"url": "./schemas/variants-schema.json"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "./node_modules/.bin/tsc -p ./",
+		"compile": "./node_modules/.bin/tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install"
+	},
+	"devDependencies": {
+		"typescript": "~2.0.3",
+		"@types/node": "~6.0.45",
+		"vscode": "~1.1.5",
+		"mocha": "~3.4.2",
+		"@types/mocha": "~2.2.41",
+		"@types/js-yaml": "^3.5.28",
+		"@types/ajv": "^0.0.3",
+		"@types/xml2js": "^0.0.28",
+		"@types/rimraf": "^0.0.28",
+		"@types/ws": "^0.0.38"
+	},
+	"dependencies": {
+		"open": "0.0.5",
+		"js-yaml": "^3.6.1",
+		"ajv": "^4.7.5",
+		"xml2js": "^0.4.17",
+		"rimraf": "^2.5.4",
+		"ws": "^1.1.1",
+		"Polymer": "1.6.1--"
+	},
+	"__metadata": {
+		"id": "7c889349-8749-43d4-8b5e-08939936d7f4",
+		"publisherId": "1925accb-0e70-40b4-8c30-80a62e5c8e8d",
+		"publisherDisplayName": "vector-of-bool"
+	}
+}

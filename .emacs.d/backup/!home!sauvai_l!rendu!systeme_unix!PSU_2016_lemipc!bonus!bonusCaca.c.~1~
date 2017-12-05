@@ -1,0 +1,81 @@
+#include <caca.h>
+#include <stdlib.h>
+#include <string.h>
+
+int *get_players_id(int **map)
+{
+    int *playerId;
+    int i;
+    int j;
+    int y;
+
+    i = 0;
+    y = 0;
+    playerId = calloc(5, sizeof(int));
+    while (i < 10)
+    {
+        j = 0;
+        while (j < 10)
+        {
+            if (map[i][j] != playerId[0] && map[i][j] != playerId[1] &&
+                map[i][j] != playerId[2] && map[i][j] != playerId[3])
+            {
+                playerId[y] = map[i][j];
+                y += 1;
+            }
+            j += 1;
+        }
+        i += 1;
+    }
+    return (playerId);
+}
+
+void display(caca_canvas_t *cv, int **map, int *playerId)
+{
+    int i;
+    int j;
+    int y;
+
+    i = y = 0;
+    while (i < 10)
+    {
+        j = 0;
+        while (j < 10)
+        {
+            if (map[i][j] == 0)
+                caca_set_color_ansi(cv, CACA_WHITE, CACA_WHITE);
+            else
+            {
+                while (playerId[y] != map[i][j] && y < 4)
+                    y += 1;
+                caca_set_color_ansi(cv, CACA_BLACK + y + 1, CACA_BLACK + y + 1);
+                y = 0;
+            }
+            caca_put_str(cv, j, i, " ");
+            j += 1;
+        }
+        i += 1;
+    }
+}
+
+void display_tab(int **map)
+{
+    caca_canvas_t *cv;
+    caca_display_t *dp;
+    caca_event_t ev;
+    int *playerId;
+
+    playerId = get_players_id(map);
+    cv = caca_create_canvas(20, 10);
+    dp = caca_create_display(cv);
+    if (!dp)
+        return;
+    caca_set_display_title(dp, "LEMIPC");
+    while (!caca_get_event(dp, CACA_EVENT_KEY_PRESS, &ev, 0))
+    {
+        display(cv, map, playerId);
+        caca_refresh_display(dp);
+    }
+    caca_free_canvas(cv);
+    caca_free_display(dp);
+}

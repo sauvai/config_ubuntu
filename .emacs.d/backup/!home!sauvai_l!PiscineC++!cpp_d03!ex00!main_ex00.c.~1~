@@ -1,0 +1,11 @@
+/*
+** main_ex00.c for main_ex00 in /home/sauvai_l/PiscineC++/cpp_d03/ex00
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Fri Jan  6 12:33:21 2017 Lorenzo
+** Last update Fri Jan  6 12:33:35 2017 Lorenzo
+*/
+
+#include "String.h"

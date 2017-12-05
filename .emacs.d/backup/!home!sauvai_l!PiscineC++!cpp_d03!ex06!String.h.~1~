@@ -1,0 +1,34 @@
+/*
+** String.h for string in /home/sauvai_l/PiscineC++/cpp_d03/ex03
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Fri Jan  6 09:25:10 2017 Lorenzo
+** Last update Fri Jan  6 14:38:47 2017 Lorenzo
+*/
+
+#ifndef _STRING_H_
+# define _STRING_H_
+
+typedef struct	String
+{
+  char	*str;
+
+  void	(*assign_s)(struct String *this, struct String const *str);
+  void	(*assign_c)(struct String *this, char const *s);
+
+  void	(*append_s)(struct String *this, struct String const *ap);
+  void	(*append_c)(struct String *this, char const *aps);
+
+  int	(*at)(struct String *this, size_t pos);
+
+  void	(*clear)(struct String *this);
+
+  int	(*size)(struct String *this);
+}		String;
+
+void	StringInit(String *this, char const *s);
+void	StringDestroy(String *this);
+
+#endif

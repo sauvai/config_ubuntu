@@ -1,0 +1,15 @@
+#!/bin/sh
+## auto_right.sh for auto_right in /home/sauvai_l
+## 
+## Made by lorenzo sauvaire
+## Login   <sauvai_l@epitech.net>
+## 
+## Started on  Thu Oct  8 20:09:47 2015 lorenzo sauvaire
+## Last update Mon Apr 11 11:02:33 2016 Sauvaire Lorenzo
+##
+
+read -p "Login : " login
+read -p "Repository : " repo
+read -p "Rights : " rights
+
+~/.bin/blih.py -u sauvai_l repository setacl $repo $login $rights

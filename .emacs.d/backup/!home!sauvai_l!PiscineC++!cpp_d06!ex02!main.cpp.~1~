@@ -1,0 +1,12 @@
+#include "sickkoala.h"
+
+int main(void)
+{
+    SickKoala Bertrand("Bertrand");
+    Bertrand.poke();
+    std::cout << Bertrand.takeDrug("Mars") << "\n";
+    std::cout << Bertrand.takeDrug("mars") << "\n"; 
+    std::cout << Bertrand.takeDrug("Buronzand") << "\n";
+    std::cout << Bertrand.takeDrug("buronzand") << "\n" << std::endl;
+    Bertrand.overDrive("Kreog! Kreog! Ca boume ?");
+}

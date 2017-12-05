@@ -1,0 +1,7 @@
+#include <vector>
+
+int main(void)
+{
+  vector<const char &> test;
+  return (0);
+}

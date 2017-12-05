@@ -1,0 +1,39 @@
+/*
+** main_ex04.c for main_ex04 in /home/sauvai_l/PiscineC++/cpp_d03/ex04
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Fri Jan  6 14:31:33 2017 Lorenzo
+** Last update Fri Jan  6 15:26:59 2017 Lorenzo
+*/
+
+#include <stdlib.h>
+#include <stdio.h>
+#include "String.h"
+
+int		main(void)
+{
+  String	*this;
+  String	*that;
+  String	*tits;
+  String	*nul;
+
+
+  this = malloc(sizeof(String));
+  that = malloc(sizeof(String));
+  tits = malloc(sizeof(String));
+  nul = malloc(sizeof(String));
+  StringInit(this, "cecile");
+  StringInit(that, "cecile");
+  StringInit(tits, "Robert");
+  StringInit(nul, NULL);
+  printf("True\n");
+  printf("compare : %d\n", (*this).compare_s(this, that));
+  printf("False\n");
+  printf("compare : %d\n", (*this).compare_s(this, tits));
+  printf("str = NULL\n");
+  printf("size : %d\n", (*this).compare_s(this, nul));
+  StringDestroy(this);
+  return (0);
+}

@@ -1,0 +1,15 @@
+/*
+** mul_div.c for mul_div in /home/sauvai_l/PiscineC++/rendu/cpp_d02m/ex00
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Thu Jan  5 09:14:12 2017 Lorenzo
+** Last update Thu Jan  5 09:15:46 2017 Lorenzo
+*/
+
+void	add_mul_4param(int first, int second, int *add, int *mul)
+{
+  *add = first + second;
+  *mul = first * second;
+}

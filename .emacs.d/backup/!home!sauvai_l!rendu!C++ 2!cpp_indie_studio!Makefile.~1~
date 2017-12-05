@@ -1,0 +1,34 @@
+##
+## Makefile for indie_studio in /home/sauvai_l/rendu/C++ 2/cpp_indie_studio
+## 
+## Made by Lorenzo
+## Login   <lorenzo.sauvaire@epitech.eu>
+## 
+## Started on  Thu May  4 12:00:34 2017 Lorenzo
+## Last update Thu May  4 12:05:46 2017 Lorenzo
+##
+
+NAME		=	indie
+
+SRC		=	src/test.cpp
+
+OBJ		=	$(SRC:.cpp=.o)
+
+CXXFLAGS	=	-W -Wall -Werror -Wextra
+
+CXX		=	g++
+
+RM		=	rm -f
+
+all		:	$(NAME)
+
+$(NAME)		:	$(OBJ)
+			$(CXX) $(OBJ) -o $(NAME)
+
+clean		:
+			$(RM) $(OBJ)
+
+fclean		:	clean
+			$(RM) $(NAME)
+
+re		:	fclean all

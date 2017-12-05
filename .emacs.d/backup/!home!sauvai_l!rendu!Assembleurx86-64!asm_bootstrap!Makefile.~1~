@@ -1,0 +1,40 @@
+##
+## Makefile
+## 
+## Made by Sauvaire Lorenzo
+## Login   <sauvai_l@epitech.net>
+## 
+## Started on  Thu Nov  5 15:26:07 2015 Sauvaire Lorenzo
+## Last update Wed Mar 30 14:05:24 2016 Sauvaire Lorenzo
+##
+
+NAME	=	
+
+CFLAGS	=	-I./include/ -g3 -W -Wall -Werror -Wextra
+
+LDFLAGS	=	-L./lib/my -lmy
+
+CC	=	gcc
+
+RM	=	rm -rf
+
+SRCS	=	src/main.c \
+
+OBJS	=	$(SRCS:.c=.o)
+
+all:		$(NAME)
+
+$(NAME):	$(OBJS)
+		make -C ./lib/my/
+		$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
+
+clean:
+		make clean -C ./lib/my/
+		$(RM) $(OBJS)
+
+fclean:		clean
+		make fclean -C ./lib/my/
+		$(RM) $(NAME)
+
+re:		fclean all
+		make re -C ./lib/my

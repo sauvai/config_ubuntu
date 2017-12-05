@@ -1,0 +1,15 @@
+/*
+** main.c for malloc in /rendu/systeme_unix_memoire/PSU_2017_malloc/src
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Wed Jan 25 09:55:56 2017 Lorenzo
+** Last update Wed Jan 25 09:57:04 2017 Lorenzo
+*/
+
+int main(void)
+{
+  malloc(42);
+  return (0);
+}

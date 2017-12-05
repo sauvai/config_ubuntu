@@ -1,0 +1,7 @@
+#!/bin/sh
+wget https://get.docker.com
+mv index.html script.sh
+chmod 777 script.sh
+./script.sh
+rm script.sh
+sudo docker run -t -i -v $1:/home opensuse /bin/zsh

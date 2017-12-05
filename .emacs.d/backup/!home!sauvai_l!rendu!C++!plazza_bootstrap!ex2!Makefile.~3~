@@ -1,0 +1,31 @@
+NAME	=	ex2
+
+SRC	=	$(NAME).cpp
+
+OBJ	=	$(SRC:.cpp=.o)
+
+LDFLAGS	+=	-lpthread
+
+CFLAGS	=	-W -Wall -Werror -Wextra
+
+CC	=	gcc
+
+RM	=	rm -rf
+
+all:		$(NAME)
+
+
+$(NAME):	$(OBJ)
+		$(CC) -o $(NAME) $(OBJ) $(LDFLAGS)
+
+
+clean:
+		$(RM) $(OBJ)
+
+
+fclean: 	clean
+		$(RM) $(NAME) $(NAME)
+
+
+re: fclean all
+

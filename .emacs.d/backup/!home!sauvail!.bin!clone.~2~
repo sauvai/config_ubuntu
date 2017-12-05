@@ -1,0 +1,11 @@
+#!/bin/sh
+## auto_clone.sh for auto  in /home/sauvai_l/bin
+## 
+## Made by lorenzo sauvaire
+## Login   <sauvai_l@epitech.net>
+## 
+## Started on  Mon Oct  5 08:51:36 2015 lorenzo sauvaire
+## Last update Mon Jul 24 15:57:08 2017 sauvail
+##
+
+git clone git@git.epitech.eu:/$1/$2

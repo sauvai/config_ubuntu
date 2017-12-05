@@ -1,0 +1,60 @@
+{
+	"name": "clangcomplete",
+	"displayName": "ClangComplete",
+	"description": "C/C++ completion using Clang",
+	"author": "Christophe Feijoo",
+	"license": "MIT",
+	"version": "0.0.6",
+	"publisher": "kube",
+	"icon": "icon.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kube/vscode-clang-complete"
+	},
+	"bugs": {
+		"url": "https://github.com/kube/vscode-clang-complete/issues"
+	},
+	"homepage": "https://github.com/kube/vscode-clang-complete",
+	"engines": {
+		"vscode": "^1.5.0"
+	},
+	"categories": [
+		"Languages"
+	],
+	"activationEvents": [
+		"onLanguage:c",
+		"onLanguage:cpp"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "Server Configuration",
+			"properties": {
+				"clangComplete.maxNumberOfProblems": {
+					"type": "number",
+					"default": 100,
+					"description": "Controls the maximum number of problems produced by the server."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"vscode:prepublish": "tsc -p ./",
+		"compile": "tsc -watch -p ./"
+	},
+	"devDependencies": {
+		"@types/node": "^6.0.50",
+		"typescript": "^2.1.1",
+		"vscode": "^1.0.3"
+	},
+	"dependencies": {
+		"vscode-languageclient": "^2.6.3"
+	},
+	"__metadata": {
+		"id": "c237369a-5a40-4d5f-afe5-73b0c11fff1e",
+		"publisherId": "3cd11a42-5c38-4d0c-9247-25ba87ffc4c2",
+		"publisherDisplayName": "kube"
+	}
+}

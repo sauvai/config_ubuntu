@@ -1,0 +1,19 @@
+/*
+** main.c for test in /home/sauvail/Documents
+**
+** Made by sauvail
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Fri Jul 14 16:44:34 2017 sauvail
+** Last update Fri Jul 14 16:46:26 2017 sauvail
+*/
+
+#include <stdio.h>
+
+#define _GNU_SOURCE
+
+int main(void)
+{
+  printf("%d\n", _GNU_SOURCE);
+  return(0);
+}

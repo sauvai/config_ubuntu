@@ -1,0 +1,14 @@
+/*
+** ptr_tricks.c for ptr_tricks in /home/sauvai_l/PiscineC++/rendu/cpp_d02m/ex05
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Thu Jan  5 20:07:24 2017 Lorenzo
+** Last update Thu Jan  5 20:08:59 2017 Lorenzo
+*/
+
+int	get_array_nb_elem(int *ptr1, int *ptr2)
+{
+
+}

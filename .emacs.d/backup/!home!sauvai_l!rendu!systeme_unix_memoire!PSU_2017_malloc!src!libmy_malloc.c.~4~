@@ -1,0 +1,18 @@
+/*
+** libmy_malloc.c for malloc in /home/rendu/systeme_unix_memoire/PSU_2017_malloc
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Wed Jan 25 09:41:35 2017 Lorenzo
+** Last update Wed Jan 25 09:58:44 2017 Lorenzo
+*/
+
+#include <stdio.h>
+#include <stddef.h>
+
+void *malloc(size_t size)
+{
+  printf("malloc");
+  return (0);
+}

@@ -1,0 +1,57 @@
+##
+## Makefile for indie_studio in /home/sauvai_l/rendu/C++ 2/cpp_indie_studio
+## 
+## Made by Lorenzo
+## Login   <lorenzo.sauvaire@epitech.eu>
+## 
+## Started on  Thu May  4 12:00:34 2017 Lorenzo
+## Last update Fri Jun  2 13:07:50 2017 Lorenzo
+##
+
+NAME		=	indie
+
+HEADER_PATH	=	gameHeaders
+
+HEADER_SRC	=	$(HEADER_PATH)/game.cpp \
+			$(HEADER_PATH)/libcaca/libcaca.cpp \
+			$(HEADER_PATH)/gameMap/gameMap.cpp \
+			$(HEADER_PATH)/entity/player.cpp \
+			$(HEADER_PATH)/entity/bomb.cpp \
+			$(HEADER_PATH)/entity/pos.cpp \
+			$(HEADER_PATH)/entity/hotkey.cpp \
+
+BOMB_SRC	=	$(HEADER_PATH)/entity/bomb/bombLaser.cpp \
+
+SRC		=	src/main.cpp \
+
+SRC		+=	$(HEADER_SRC)
+
+SRC		+=	$(BOMB_SRC)
+
+OBJ		=	$(SRC:.cpp=.o)
+
+CXXFLAGS	=	-g3 -I./$(HEADER_PATH)/ -W -Wall -Werror -Wextra -std=c++11
+
+CXX		=	g++
+
+RM		=	rm -f
+
+all		:	$(NAME)
+
+$(NAME)		:	$(OBJ)
+			@$(CXX) $(OBJ) -o $(NAME) -lcaca
+			@echo "[OK] $(NAME) linked"
+
+%.o		:	%.cpp
+			@$(CXX) $(CXXFLAGS) -c $< -o $@
+			@echo "[OK] [$<] builded"
+
+clean		:
+			@$(RM) $(OBJ)
+			@echo "[OK] clean"
+
+fclean		:	clean
+			$(RM) $(NAME)
+			@echo "[OK] fclean"
+
+re		:	fclean all

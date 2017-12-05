@@ -1,0 +1,51 @@
+//
+// Made by sauvai_l
+//
+// Created on Thu Jul 13 2017 17:31:49
+//
+
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include "../include/jetpack2T3.h"
+
+int initMap(t_map *m, char *file)
+{
+  FILE *fd;
+  size_t useless;
+
+  if ((m = malloc(sizeof(t_map))))
+    {
+      if ((m->map = malloc(sizeof(char*))))
+        {
+	  if ((fd = fopen(file, "r")) == NULL)
+            {
+          m->height = 1;
+	      m->width = getline(&(m->map)[0], &useless, fd);
+	      printf("%s\n", m->map[0]);
+	      while (m->width)
+                {
+		  if (getline(&(m->map)[m->height], &useless, fd) != m->width)
+		    {
+		      fclose(fd);
+		      return (-1);
+		    }
+		  printf("%s\n", m->map[m->height]);
+		  m->height += 1;
+		  m->map = realloc(m->map, m->height * sizeof(char*));
+                }
+	      return (0);
+            }
+        }
+    }
+  return (-1);
+}
+
+int main(void)
+{
+    t_map m;
+
+    return (initMap(&m, "map"));
+}

@@ -1,0 +1,154 @@
+# Path to your oh-my-zsh installation.
+export ZSH=/home/${USER}/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+#ZSH_THEME="robbyrussell"
+#ZSH_THEME="agnoster"
+#POWERLEVEL9K_MODE='awesome-fontconfig'
+
+# powerlevel9k config
+export TERM="xterm-256color"
+alias emacs='TERM=xterm emacs' 
+
+#export TERM="emacs"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+ DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+ DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+ ENABLE_CORRECTION="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+
+plugins=(git)
+
+# User configuration
+
+export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/heimdal/bin:/usr/heimdal/sbin:/home/sauvail/.bin:/usr/games"
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
+
+# Couleurs pour le prompt                                                                                 
+DEFAULT="\[\e[00m\]"
+BLACK="\[\e[30m\]"
+RED="\[\e[31m\]"
+GREEN="\[\e[32m\]"
+ORANGE="\[\e[33m\]"
+BLUE="\[\e[34m\]"
+MAGENTA="\[\e[35m\]"
+CYAN="\[\e[36m\]"
+WHITE="\[\e[37m\]"
+
+# Effets de texte (défaut, gras, souligné)                                                                
+export DEF="\[\e[0;0m\]"
+export BOLD="\[\e[1m\]"
+export UNDER="\[\e[4m\]"
+
+# History
+export HISTSIZE=300
+export HISTFILESIZE=1000
+export HISTCONTROL=ignoreboth
+
+#------------Alias Perso------------#                                                                    
+alias ..='cd ..'
+alias mv='mv -i'
+alias rm='rm -I'
+alias ll='ls -lh'
+alias su='sudo '
+alias cp='cp -rfi'
+alias la='ls -lah'
+alias sudo='sudo '
+alias make='make -s'
+alias tree='tree -C'
+alias ne='emacs -nw'
+alias bin='cd ~/.bin'
+alias pull='git pull'
+alias z='ne ~/.zshrc'
+alias b='ne ~/.bashrc'
+alias file='nautilus .'
+alias h='history | less'
+alias ls='ls --color=yes'
+alias zs='source ~/.zshrc'
+alias lg='ls | grep -n ""'
+alias blih='~/.bin/blih.py'
+alias franz='~/Franz/Franz'
+alias net='chromium-browser'
+alias cow='fortune | cowsay'
+alias grep='grep --color=always'
+alias ctemp='cp ~/sauvai_l/c\ templates/* .'
+alias need='objdump -p ./a.out | grep NEEDED'
+alias bsu='sudo emacs -nw ~/../../root/.bashrc'
+alias up='sudo apt-get update && sudo apt-get upgrade'
+
+#-----------APT-----------#
+
+alias purge='sudo apt-get purge'
+alias install='sudo apt-get install'
+
+#-----------GIT-----------#
+
+alias repo_right='~/.bin/blih.py -u sauvai_l repository setacl'
+alias init='git flow init'
+alias start='git flow feature start'
+alias publish='git flow feature publish'
+alias pull_feature='git flow feature pull origin'
+alias finish='git flow feature finish'
+alias switch='git checkout'
+
+#----------DOCKER-----------#
+
+alias dump='sudo docker run -t -i -v /home/sauvai_l/rendu/:/home opensuse /bin/bash'
+
+#-----------GAME------------#
+
+alias dofus='~/Game/Dofus/Dofus'
+
+#------------VS-------------#
+
+alias vstheme='cp ~/sauvai_l/*.json ~/.vscode/extensions/AndrsDC.base16-themes-*/themes/'
+
+#-----------SSH-------------#
+
+alias raspberry='ssh pi@82.236.239.93'
+
+#Piscine
+alias gc='gcc -Wall -Wextra -Werror -std=gnu99 -g3'
+alias g+='g++ -Wall -Wextra -Werror -std=c++11 -g3'
+
+# LESS man page colors (makes Man pages more readable).                                            
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+# Start
+# fortune | cowsay

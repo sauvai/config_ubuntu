@@ -1,0 +1,33 @@
+NAME			=	project
+
+CXX			=	g++ -g3	
+
+INCLUDE			=	include
+
+CXXFLAGS		=	-W -Wall -Wextra -Werror -I$(INCLUDE)
+
+RM			=	rm -f
+
+SRC			=	main.cpp   \
+
+OBJ			=	$(SRC:.cpp=.o)
+
+all			:	$(NAME)
+
+$(NAME)			:	$(OBJ)
+				@$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+				@echo "[OK] $(NAME) linked"
+
+%.o			:	%.cpp
+				@$(CXX) -c $< -o $@
+				@echo "[OK] [$<] builded"
+
+clean			:
+				@$(RM) $(OBJ)
+				@echo "[OK] clean"
+
+fclean			:	clean
+				@$(RM) $(NAME)
+				@echo "[OK] fclean"
+
+re			:	fclean all

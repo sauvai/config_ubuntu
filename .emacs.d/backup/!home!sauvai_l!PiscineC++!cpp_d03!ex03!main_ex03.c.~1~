@@ -1,0 +1,17 @@
+/*
+** main_ex03.c for main_ex03 in /home/sauvai_l/PiscineC++/cpp_d03/ex03
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Fri Jan  6 11:38:50 2017 Lorenzo
+** Last update Fri Jan  6 11:39:10 2017 Lorenzo
+*/
+
+#include <stdio.h>
+#include "String.h"
+
+int	main(void)
+{
+
+}

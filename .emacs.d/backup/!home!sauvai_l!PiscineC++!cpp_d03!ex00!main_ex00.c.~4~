@@ -1,0 +1,27 @@
+/*
+** main_ex00.c for main_ex00 in /home/sauvai_l/PiscineC++/cpp_d03/ex00
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Fri Jan  6 12:33:21 2017 Lorenzo
+** Last update Fri Jan  6 13:16:49 2017 Lorenzo
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "String.h"
+
+int	main(void)
+{
+  String	*this;
+
+  this = NULL;
+  this = malloc(sizeof(String));
+  StringInit(this, "pomme");
+  if (this)
+    {
+      printf("%s\n", (*this).str);
+      StringDestroy(this);
+    }
+}

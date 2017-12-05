@@ -1,0 +1,35 @@
+##
+## Makefile
+## 
+## Made by Sauvaire Lorenzo
+## Login   <sauvai_l@epitech.net>
+## 
+## Started on  Thu Nov  5 15:26:07 2015 Sauvaire Lorenzo
+## Last update Wed Feb 15 10:32:20 2017 Lorenzo
+##
+
+NAME	=	parser
+
+CFLAGS	=	-g3 -W -Wall -Werror -Wextra
+
+CC	=	I./include gcc
+
+RM	=	rm -rf
+
+SRCS	=	src/main.c \
+			src/parsing.c \
+
+OBJS	=	$(SRCS:.c=.o)
+
+all:		$(NAME)
+
+$(NAME):	$(OBJS)
+		$(CC) $(OBJS) -o $(NAME)
+
+clean:
+		$(RM) $(OBJS)
+
+fclean:		clean
+		$(RM) $(NAME)
+
+re:		fclean all

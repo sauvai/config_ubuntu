@@ -1,0 +1,12 @@
+/*
+** main_ex02.c for main_ex02 in /home/sauvai_l/PiscineC++/cpp_d03/ex02
+**
+** Made by Lorenzo
+** Login   <lorenzo.sauvaire@epitech.eu>
+**
+** Started on  Fri Jan  6 11:25:01 2017 Lorenzo
+** Last update Fri Jan  6 11:25:22 2017 Lorenzo
+*/
+
+#include <stdio.h>
+#include "String.h"

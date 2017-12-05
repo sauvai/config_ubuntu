@@ -1,0 +1,7 @@
+./trade_moulinette.php -f action/AMAZON1.TXT -p ../trade -m $1
+./trade_moulinette.php -f action/BAC1.TXT -p ../trade -m $1
+./trade_moulinette.php -f action/boeing5.txt -p ../trade -m $1
+./trade_moulinette.php -f action/CISCO1.TXT -p ../trade -m $1
+./trade_moulinette.php -f action/ibm5.txt -p ../trade -m $1
+./trade_moulinette.php -f action/nike5.txt -p ../trade -m $1
+./trade_moulinette.php -f action/nike5.txt -p ../trade -m $1

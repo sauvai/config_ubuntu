@@ -1,0 +1,66 @@
+{
+	"name": "hopscotch",
+	"displayName": "Hopscotch (Official)",
+	"description": "Color scheme inspired by the Hopscotch learning platform for kids",
+	"version": "0.2.1",
+	"publisher": "idleberg",
+	"license": "CC0-1.0",
+	"author": {
+		"name": "Jan T. Sott",
+		"url": "http://github.com/idleberg"
+	},
+	"keywords": [
+		"hopscotch"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/idleberg/vscode-hopscotch.git"
+	},
+	"homepage": "https://github.com/idleberg/vscode-hopscotch",
+	"bugs": {
+		"url": "https://github.com/idleberg/vscode-hopscotch/issues"
+	},
+	"icon": "images/logo.png",
+	"galleryBanner": {
+		"color": "#d5d3d5"
+	},
+	"engines": {
+		"vscode": "^1.0.0"
+	},
+	"categories": [
+		"Themes"
+	],
+	"contributes": {
+		"themes": [
+			{
+				"label": "Hopscotch",
+				"uiTheme": "vs-dark",
+				"path": "./themes/hopscotch.json"
+			},
+			{
+				"label": "Hopscotch (TextMate Theme)",
+				"uiTheme": "vs-dark",
+				"path": "./themes/hopscotch.tmTheme"
+			}
+		]
+	},
+	"devDependencies": {
+		"gulp": "github:gulpjs/gulp#4.0",
+		"gulp-debug": "^3.0.0",
+		"gulp-jsonlint": "^1.2.0",
+		"gulp-raster": "^0.2.0",
+		"gulp-rename": "^1.2.2",
+		"gulp-xml-validator": "^0.1.2",
+		"vscode": "^1.1.2"
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "gulp lint",
+		"vscode:prepublish": "gulp build"
+	},
+	"__metadata": {
+		"id": "7f937559-a3c9-43e0-a62b-0008a5da127b",
+		"publisherId": "d142cf02-af52-4395-9363-148909445cb3",
+		"publisherDisplayName": "idleberg"
+	}
+}

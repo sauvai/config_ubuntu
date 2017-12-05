@@ -1,0 +1,14 @@
+#include "koalanurse.h"
+
+int main(void)
+{
+    KoalaNurse Bertrand(42);
+    SickKoala WoahSick("Michel");
+
+    Bertrand.timeCheck();
+    Bertrand.isWorking;
+    WoahSick.poke();
+    Bertrand.giveDrug(Bertrand.readReport("Michel.report"), &WoahSick);
+    Bertrand.timeCheck();
+    Bertrand.isWorking;
+}

@@ -1,0 +1,577 @@
+{
+	"name": "vscode-rust",
+	"displayName": "Rust",
+	"description": "Rust language integration for VSCode",
+	"version": "0.4.2",
+	"publisher": "kalitaalexey",
+	"license": "MIT",
+	"icon": "images/icon.png",
+	"homepage": "https://github.com/KalitaAlexey/vscode-rust",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/KalitaAlexey/vscode-rust"
+	},
+	"bugs": {
+		"url": "https://github.com/KalitaAlexey/vscode-rust/issues",
+		"email": "kalita.alexey@outlook.com"
+	},
+	"engines": {
+		"vscode": "^1.8.0"
+	},
+	"categories": [
+		"Languages",
+		"Linters",
+		"Snippets"
+	],
+	"activationEvents": [
+		"onLanguage:rust",
+		"onCommand:rust.cargo.new.bin",
+		"onCommand:rust.cargo.new.lib",
+		"onCommand:rust.cargo.new.playground",
+		"onCommand:rust.cargo.build.default",
+		"onCommand:rust.cargo.build.custom",
+		"onCommand:rust.cargo.clippy.default",
+		"onCommand:rust.cargo.clippy.custom",
+		"onCommand:rust.cargo.doc.default",
+		"onCommand:rust.cargo.doc.custom",
+		"onCommand:rust.cargo.run.default",
+		"onCommand:rust.cargo.run.custom",
+		"onCommand:rust.cargo.test.default",
+		"onCommand:rust.cargo.test.custom",
+		"onCommand:rust.cargo.bench",
+		"onCommand:rust.cargo.update",
+		"onCommand:rust.cargo.clean",
+		"onCommand:rust.cargo.check.default",
+		"onCommand:rust.cargo.check.custom",
+		"onCommand:rust.cargo.terminate"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"languages": [
+			{
+				"id": "rust",
+				"aliases": [
+					"Rust"
+				],
+				"extensions": [
+					".rs"
+				]
+			}
+		],
+		"snippets": [
+			{
+				"language": "rust",
+				"path": "./snippets/rust.json"
+			}
+		],
+		"commands": [
+			{
+				"command": "rust.cargo.new.bin",
+				"title": "Cargo: Create new executable project",
+				"description": "Creating a new executable project"
+			},
+			{
+				"command": "rust.cargo.new.lib",
+				"title": "Cargo: Create new library project",
+				"description": "Creating a new library project"
+			},
+			{
+				"command": "rust.cargo.new.playground",
+				"title": "Cargo: Create playground",
+				"description": "Creating a project in a temporary directory"
+			},
+			{
+				"command": "rust.cargo.build.default",
+				"title": "Cargo: Build",
+				"description": "Compile the current project"
+			},
+			{
+				"command": "rust.cargo.build.custom",
+				"title": "Cargo: Build using custom configuration",
+				"description": "Compile the current project using custom configuration"
+			},
+			{
+				"command": "rust.cargo.run.default",
+				"title": "Cargo: Run",
+				"description": "Build and execute src/main.rs"
+			},
+			{
+				"command": "rust.cargo.run.custom",
+				"title": "Cargo: Run using custom configuration",
+				"description": "Build and execute src/main.rs using custom configuration"
+			},
+			{
+				"command": "rust.cargo.doc.default",
+				"title": "Cargo: Doc",
+				"description": "Build this project's and its dependencies' documentation"
+			},
+			{
+				"command": "rust.cargo.doc.custom",
+				"title": "Cargo: Doc using custom configuration",
+				"description": "Build this project's and its dependencies' documentation using custom configuration"
+			},
+			{
+				"command": "rust.cargo.test.default",
+				"title": "Cargo: Test",
+				"description": "Run the tests"
+			},
+			{
+				"command": "rust.cargo.test.custom",
+				"title": "Cargo: Test using custom configuration",
+				"description": "Run the tests using custom configuration"
+			},
+			{
+				"command": "rust.cargo.bench",
+				"title": "Cargo: Bench",
+				"description": "Run the benchmarks"
+			},
+			{
+				"command": "rust.cargo.update",
+				"title": "Cargo: Update",
+				"description": "Update dependencies listed in Cargo.lock"
+			},
+			{
+				"command": "rust.cargo.clean",
+				"title": "Cargo: Clean",
+				"description": "Remove the target directory"
+			},
+			{
+				"command": "rust.cargo.check.default",
+				"title": "Cargo: Check",
+				"description": "Check the project for warnings and errors"
+			},
+			{
+				"command": "rust.cargo.check.custom",
+				"title": "Cargo: Check using custom configuration",
+				"description": "Check the main library of the project for warnings and errors using custom configuration"
+			},
+			{
+				"command": "rust.cargo.clippy.default",
+				"title": "Cargo: Clippy",
+				"description": "Check project with clippy."
+			},
+			{
+				"command": "rust.cargo.clippy.custom",
+				"title": "Cargo: Clippy using custom configuration",
+				"description": "Check project with clippy using custom configuration"
+			},
+			{
+				"command": "rust.cargo.terminate",
+				"title": "Cargo: Terminate Running Task",
+				"description": "Terminate currently running cargo task"
+			}
+		],
+		"configuration": {
+			"title": "Rust extension configuration",
+			"type": "object",
+			"properties": {
+				"rust.mode": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": null,
+					"description": "The mode in which the extension will function",
+					"enum": [
+						"legacy",
+						"rls",
+						null
+					]
+				},
+				"rust.racerPath": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": null,
+					"description": "Specifies path to Racer binary if it's not in PATH"
+				},
+				"rust.rustfmtPath": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": null,
+					"description": "Specifies path to Rustfmt binary if it's not in PATH"
+				},
+				"rust.rustsymPath": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": null,
+					"description": "Specifies path to Rustsym binary if it's not in PATH"
+				},
+				"rust.rustLangSrcPath": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": null,
+					"description": "Specifies path to /src directory of local copy of Rust sources"
+				},
+				"rust.showOutput": {
+					"type": [
+						"boolean"
+					],
+					"default": true,
+					"description": "Automatically show output panel when starting any cargo task"
+				},
+				"rust.cargoPath": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": null,
+					"description": "Specifies path to Cargo binary if it's not in PATH"
+				},
+				"rust.cargoHomePath": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": null,
+					"description": "Specifies path to home directory of Cargo. Mostly needed for working with custom installations of Rust via rustup or multirust."
+				},
+				"rust.cargoEnv": {
+					"type": [
+						"object",
+						"null"
+					],
+					"default": null,
+					"description": "Specifies custom variables to set when running cargo. Useful for crates which use env vars in their build.rs (like openssl-sys)."
+				},
+				"rust.cargoCwd": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": null,
+					"description": "Specifies the path of the directory where a cargo command would be executed"
+				},
+				"rust.executeCargoCommandInTerminal": {
+					"type": "boolean",
+					"default": false,
+					"description": "Indicating whether any cargo command should be executed in an integrated terminal. Used only in not RLS mode"
+				},
+				"rust.actionOnStartingCommandIfThereIsRunningCommand": {
+					"default": "Stop running command",
+					"type": "string",
+					"enum": [
+						"Stop running command",
+						"Ignore new command",
+						"Show dialog to let me decide"
+					]
+				},
+				"rust.actionOnSave": {
+					"type": "string",
+					"default": null,
+					"enum": [
+						"build",
+						"check",
+						"clippy",
+						"doc",
+						"run",
+						"test",
+						null
+					]
+				},
+				"rust.buildArgs": {
+					"type": "array",
+					"default": [],
+					"description": "Arguments which is passed to cargo build"
+				},
+				"rust.checkArgs": {
+					"type": "array",
+					"default": [],
+					"description": "Arguments which is passed to cargo check"
+				},
+				"rust.clippyArgs": {
+					"type": "array",
+					"default": [],
+					"description": "Arguments which is passed to cargo clippy"
+				},
+				"rust.docArgs": {
+					"type": "array",
+					"default": [],
+					"description": "Arguments which is passed to cargo doc"
+				},
+				"rust.runArgs": {
+					"type": "array",
+					"default": [],
+					"description": "Arguments which is passed to cargo run"
+				},
+				"rust.testArgs": {
+					"type": "array",
+					"default": [],
+					"description": "Arguments which is passed to cargo test"
+				},
+				"rust.customBuildConfigurations": {
+					"default": [
+						{
+							"title": "Release",
+							"args": [
+								"--release"
+							]
+						}
+					],
+					"description": "Custom configurations for cargo build. Array of objects with `title` (string) and `args` (array of strings) which will be passed to `cargo build`.",
+					"items": {
+						"properties": {
+							"title": {
+								"type": "string"
+							},
+							"args": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								}
+							}
+						},
+						"required": [
+							"title",
+							"args"
+						]
+					},
+					"type": "array"
+				},
+				"rust.customCheckConfigurations": {
+					"default": [
+						{
+							"title": "Release",
+							"args": [
+								"--release"
+							]
+						}
+					],
+					"description": "Custom configurations for cargo check. Array of objects with `title` (string) and `args` (array of strings) which will be passed to `cargo check`.",
+					"items": {
+						"properties": {
+							"title": {
+								"type": "string"
+							},
+							"args": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								}
+							}
+						},
+						"required": [
+							"title",
+							"args"
+						]
+					},
+					"type": "array"
+				},
+				"rust.customClippyConfigurations": {
+					"default": [],
+					"description": "Custom configurations for cargo clippy. Array of objects with `title` (string) and `args` (array of strings) which will be passed to `cargo clippy`.",
+					"items": {
+						"properties": {
+							"title": {
+								"type": "string"
+							},
+							"args": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								}
+							}
+						},
+						"required": [
+							"title",
+							"args"
+						]
+					},
+					"type": "array"
+				},
+				"rust.customDocConfigurations": {
+					"default": [],
+					"description": "Custom configurations for cargo doc. Array of objects with `title` (string) and `args` (array of strings) which will be passed to `cargo doc`.",
+					"items": {
+						"properties": {
+							"title": {
+								"type": "string"
+							},
+							"args": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								}
+							}
+						},
+						"required": [
+							"title",
+							"args"
+						]
+					},
+					"type": "array"
+				},
+				"rust.customRunConfigurations": {
+					"default": [
+						{
+							"title": "Release",
+							"args": [
+								"--release"
+							]
+						}
+					],
+					"description": "Custom configurations for cargo run. Array of objects with `title` (string) and `args` (array of strings) which will be passed to `cargo run`.",
+					"items": {
+						"properties": {
+							"title": {
+								"type": "string"
+							},
+							"args": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								}
+							}
+						},
+						"required": [
+							"title",
+							"args"
+						]
+					},
+					"type": "array"
+				},
+				"rust.customTestConfigurations": {
+					"default": [
+						{
+							"title": "Release",
+							"args": [
+								"--release"
+							]
+						}
+					],
+					"description": "Custom configurations for cargo test. Array of objects with `title` (string) and `args` (array of strings) which will be passed to `cargo test`.",
+					"items": {
+						"properties": {
+							"title": {
+								"type": "string"
+							},
+							"args": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								}
+							}
+						},
+						"required": [
+							"title",
+							"args"
+						]
+					},
+					"type": "array"
+				},
+				"rust.rustup": {
+					"default": null,
+					"description": "rustup configuration",
+					"properties": {
+						"toolchain": {
+							"default": null,
+							"description": "The toolchain to use for installing components (rust-src), except RLS",
+							"type": [
+								"string",
+								"null"
+							]
+						},
+						"nightlyToolchain": {
+							"default": null,
+							"description": "The nightly toolchain to use for installing RLS and related components and running RLS",
+							"type": [
+								"string",
+								"null"
+							]
+						}
+					}
+				},
+				"rust.rls": {
+					"default": null,
+					"description": "Rust Language Server configuration",
+					"properties": {
+						"executable": {
+							"default": "rls",
+							"description": "An executable to run as a language server",
+							"type": "string"
+						},
+						"args": {
+							"default": null,
+							"description": "Arguments to pass to the executable",
+							"items": {
+								"type": "string"
+							},
+							"type": [
+								"array",
+								"null"
+							]
+						},
+						"env": {
+							"default": null,
+							"description": "An environment to run the executable in",
+							"type": [
+								"object",
+								"null"
+							]
+						},
+						"revealOutputChannelOn": {
+							"default": "error",
+							"description": "Specifies when the output channel should be revealed",
+							"enum": [
+								"info",
+								"warn",
+								"error",
+								"never"
+							],
+							"type": "string"
+						},
+						"useRustfmt": {
+							"default": null,
+							"description": "Specified whether rustfmt should be used for formatting",
+							"type": [
+								"boolean",
+								"null"
+							]
+						}
+					}
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "tsc -p .",
+		"compile": "tsc -watch -p .",
+		"gulp": "node ./node_modules/gulp/bin/gulp.js",
+		"postinstall": "node ./node_modules/vscode/bin/install"
+	},
+	"devDependencies": {
+		"gulp": "3.9.1",
+		"gulp-shell": "0.5.2",
+		"gulp-tslint": "7.1.0",
+		"mocha": "3.2.0",
+		"tslint": "5.1.0",
+		"typescript": "2.2.1",
+		"vscode": "1.1.0",
+		"@types/node": "7.0.11",
+		"@types/mocha": "2.2.40",
+		"@types/open": "0.0.29",
+		"@types/which": "1.0.28"
+	},
+	"dependencies": {
+		"expand-tilde": "2.0.2",
+		"tmp": "0.0.31",
+		"open": "0.0.5",
+		"tree-kill": "1.1.0",
+		"find-up": "2.1.0",
+		"elegant-spinner": "1.0.1",
+		"vscode-languageclient": "3.2.0",
+		"which": "1.2.14"
+	},
+	"__metadata": {
+		"id": "da00c08c-ff11-4cf3-b619-fdbd967d44c5",
+		"publisherId": "9369145d-06b2-4fd8-9739-1311c5cb16c8",
+		"publisherDisplayName": "kalitaalexey"
+	}
+}
